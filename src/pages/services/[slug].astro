@@ -1,0 +1,167 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content"
+import PageLayout from "@layouts/PageLayout.astro"
+import TopLayout from "@layouts/TopLayout.astro"
+import BottomLayout from "@layouts/BottomLayout.astro"
+import ArticleTopLayout from "@layouts/ArticleTopLayout.astro"
+import ArticleBottomLayout from "@layouts/ArticleBottomLayout.astro"
+
+// Create the static service pages
+export async function getStaticPaths() {
+	const services = await getCollection("services")
+	return services.map((service) => ({
+		params: { slug: service.slug },
+		props: service,
+	}))
+}
+
+// Get the requested service
+type Props = CollectionEntry<"services">
+const service = Astro.props
+const { title, summary, description, features, price, icon } = service.data
+---
+
+<PageLayout title={title} description={summary}>
+  <TopLayout>
+    <div class="animate">
+      <ArticleTopLayout entry={service} />
+    </div>
+  </TopLayout>
+  <BottomLayout>
+    <div class="animate">
+      <article class="max-w-none">
+        <!-- Hero Pricing Section -->
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-8 text-center">
+          <div class="max-w-2xl mx-auto">
+            {icon && (
+              <div class="text-6xl mb-6">
+                {icon}
+              </div>
+            )}
+            <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              {title}
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-6">{summary}</p>
+            
+            {price && (
+              <div class="inline-flex items-baseline gap-2 bg-white dark:bg-gray-800 px-6 py-4 rounded-2xl shadow-lg">
+                <span class="text-4xl font-bold text-blue-600 dark:text-blue-400">{price}</span>
+                <span class="text-gray-500 dark:text-gray-400">Starting from</span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <!-- Features & Description Grid -->
+        <div class="grid lg:grid-cols-3 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+              <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Service Overview</h2>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">{description}</p>
+            </div>
+          </div>
+          
+          <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+            <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">What's Included</h2>
+            <ul class="space-y-3">
+              {features.map((feature, index) => (
+                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                  <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Additional Business Systems Section -->
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Business Management Systems</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- CRM System Card -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
+              <div class="p-6 text-center">
+                <div class="text-4xl mb-4">📊</div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">CRM System</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Customer Relationship Management for sales and support</p>
+                <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-1 mb-4">
+                  <li>Lead Management</li>
+                  <li>Customer Profiles</li>
+                  <li>Sales Pipeline</li>
+                  <li>Reporting Dashboard</li>
+                </ul>
+                <div class="text-lg font-bold text-blue-600 dark:text-blue-400">$15</div>
+              </div>
+            </div>
+
+            <!-- HR Management System Card -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
+              <div class="p-6 text-center">
+                <div class="text-4xl mb-4">👥</div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">HR Management</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Complete HR solution for employee management</p>
+                <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-1 mb-4">
+                  <li>Employee Database</li>
+                  <li>Leave Management</li>
+                  <li>Payroll Integration</li>
+                  <li>Performance Reviews</li>
+                </ul>
+                <div class="text-lg font-bold text-blue-600 dark:text-blue-400">$15</div>
+              </div>
+            </div>
+
+            <!-- LMS Card -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
+              <div class="p-6 text-center">
+                <div class="text-4xl mb-4">🎓</div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">LMS Platform</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Learning Management System for education</p>
+                <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-1 mb-4">
+                  <li>Course Management</li>
+                  <li>Student Progress</li>
+                  <li>Quiz System</li>
+                  <li>Certificate Generation</li>
+                </ul>
+                <div class="text-lg font-bold text-blue-600 dark:text-blue-400">$15</div>
+              </div>
+            </div>
+
+            <!-- Employee Management Card -->
+            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
+              <div class="p-6 text-center">
+                <div class="text-4xl mb-4">💼</div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Employee Management</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Streamlined employee workflow management</p>
+                <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-1 mb-4">
+                  <li>Attendance Tracking</li>
+                  <li>Task Management</li>
+                  <li>Document Storage</li>
+                  <li>Team Collaboration</li>
+                </ul>
+                <div class="text-lg font-bold text-blue-600 dark:text-blue-400">$15</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white mb-8">
+          <h2 class="text-2xl font-bold mb-4">Ready to Get Started?</h2>
+          <p class="text-blue-100 mb-6">Let's discuss your project requirements and create something amazing together.</p>
+          <a href="/contact" class="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            Get Free Consultation
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <ArticleBottomLayout entry={service} />
+        </div>
+      </article>
+    </div>
+  </BottomLayout>
+</PageLayout>
