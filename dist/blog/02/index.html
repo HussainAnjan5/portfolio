@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v4.16.19"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><!-- Canonical URL --><link rel="canonical" href="https://astro-sphere-demo.vercel.app/blog/02/"><!-- Primary Meta Tags --><title>Building an E-Commerce Store with Laravel Backend + React Frontend | Hussain</title><meta name="title" content="Building an E-Commerce Store with Laravel Backend + React Frontend | Hussain"><meta name="description" content="A step-by-step guide to building an e-commerce store using Laravel for the backend, React with Tailwind CSS for the frontend, and an admin portal for product management."><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://astro-sphere-demo.vercel.app/blog/02/"><meta property="og:title" content="Building an E-Commerce Store with Laravel Backend + React Frontend | Hussain"><meta property="og:description" content="A step-by-step guide to building an e-commerce store using Laravel for the backend, React with Tailwind CSS for the frontend, and an admin portal for product management."><meta property="og:image" content="https://astro-sphere-demo.vercel.app/open-graph.jpg"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://astro-sphere-demo.vercel.app/blog/02/"><meta property="twitter:title" content="Building an E-Commerce Store with Laravel Backend + React Frontend | Hussain"><meta property="twitter:description" content="A step-by-step guide to building an e-commerce store using Laravel for the backend, React with Tailwind CSS for the frontend, and an admin portal for product management."><meta property="twitter:image" content="https://astro-sphere-demo.vercel.app/open-graph.jpg"><!-- Sitemap --><link rel="sitemap" href="/sitemap-index.xml"><!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="Building an E-Commerce Store with Laravel Backend + React Frontend | Hussain" href="https://astro-sphere-demo.vercel.app/rss.xml"><!-- Global Scripts --><script src="/js/theme.js"></script><script src="/js/scroll.js"></script><script src="/js/animate.js"></script><script defer src="/js/copy.js"></script><!-- <ViewTransitions  /> --><link rel="stylesheet" href="/_astro/_slug_.COKlUYva.css"><script type="module" src="/_astro/hoisted.BGfjo5mV.js"></script></head> <body> <header id="header" class="fixed top-0 w-full h-16 z-50 " data-astro-cid-3ef6ksr2> <div class="w-full h-full mx-auto px-5 max-w-screen-md">  <div class="relative h-full w-full" data-astro-cid-3ef6ksr2> <div class="absolute left-0 top-1/2 -translate-y-1/2 flex gap-1 font-semibold" data-astro-cid-3ef6ksr2> <a href="/" class="flex gap-1 text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out" data-astro-cid-3ef6ksr2> <svg class="size-6 fill-current" data-astro-cid-3ef6ksr2></svg> <div data-astro-cid-3ef6ksr2> Hussain </div> </a> </div> <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" data-astro-cid-3ef6ksr2> <nav class="hidden md:flex items-center justify-center text-sm gap-1" data-astro-cid-3ef6ksr2> <a href="/" class="h-8 rounded-full px-3 text-current flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white" data-astro-cid-3ef6ksr2> Home </a><a href="/work" class="h-8 rounded-full px-3 text-current flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white" data-astro-cid-3ef6ksr2> Work </a><a href="/blog" class="h-8 rounded-full px-3 flex items-center justify-center transition-colors duration-300 ease-in-out bg-black dark:bg-white text-white dark:text-black" data-astro-cid-3ef6ksr2> Blog </a><a href="/projects" class="h-8 rounded-full px-3 text-current flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white" data-astro-cid-3ef6ksr2> Projects </a><a href="/services" class="h-8 rounded-full px-3 text-current flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white" data-astro-cid-3ef6ksr2> Services </a><a href="/contact" class="h-8 rounded-full px-3 text-current flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white" data-astro-cid-3ef6ksr2> Contact </a> </nav> </div> <div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1" data-astro-cid-3ef6ksr2> <a href="/search" aria-label="Search blog posts and projects on Hussain" class="hidden md:flex size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out" data-astro-cid-3ef6ksr2> <svg class="size-full" data-astro-cid-3ef6ksr2> <use href="/ui.svg#search" data-astro-cid-3ef6ksr2></use> </svg> </a> <a href="/rss.xml" target="_blank" aria-label="Rss feed for Hussain" class="hidden md:flex size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out" data-astro-cid-3ef6ksr2> <svg class="size-full" data-astro-cid-3ef6ksr2> <use href="/ui.svg#rss" data-astro-cid-3ef6ksr2></use> </svg> </a> <button id="header-theme-button" aria-label="Toggle light and dark theme" class="hidden md:flex size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out" data-astro-cid-3ef6ksr2> <svg class="size-full block dark:hidden" data-astro-cid-3ef6ksr2> <use href="/ui.svg#sun" data-astro-cid-3ef6ksr2></use> </svg> <svg class="size-full hidden dark:block" data-astro-cid-3ef6ksr2> <use href="/ui.svg#moon" data-astro-cid-3ef6ksr2></use> </svg> </button> <button id="header-drawer-button" aria-label="Toggle drawer open and closed" class="flex md:hidden size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out" data-astro-cid-3ef6ksr2> <svg id="drawer-open" class="size-full" data-astro-cid-3ef6ksr2> <use href="/ui.svg#menu" data-astro-cid-3ef6ksr2></use> </svg> <svg id="drawer-close" class="size-full" data-astro-cid-3ef6ksr2> <use href="/ui.svg#x" data-astro-cid-3ef6ksr2></use> </svg> </button> </div> </div>  </div> </header>  <script>
+  function toggleDrawer() {
+    const drawer = document.getElementById("drawer")
+    const drawerButton = document.getElementById("header-drawer-button")
+    drawer?.classList.toggle("open")
+    drawerButton?.classList.toggle("open")
+  }
+
+  function initializeDrawerButton() {
+    const drawerButton = document.getElementById("header-drawer-button")
+    drawerButton?.addEventListener("click", toggleDrawer)
+  }
+
+  document.addEventListener("astro:after-swap", initializeDrawerButton)
+  initializeDrawerButton()
+</script> <div id="drawer" class="fixed inset-0 h-0 z-40 overflow-hidden flex flex-col items-center justify-center md:hidden bg-neutral-100 dark:bg-neutral-900 transition-[height] duration-300 ease-in-out" data-astro-cid-hxtyo74s> <nav class="flex flex-col items-center space-y-2" data-astro-cid-hxtyo74s> <a href="/" class="flex items-center justify-center px-3 py-1 rounded-full text-current hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out" data-astro-cid-hxtyo74s> Home </a><a href="/work" class="flex items-center justify-center px-3 py-1 rounded-full text-current hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out" data-astro-cid-hxtyo74s> Work </a><a href="/blog" class="flex items-center justify-center px-3 py-1 rounded-full hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out pointer-events-none bg-black dark:bg-white text-white dark:text-black" data-astro-cid-hxtyo74s> Blog </a><a href="/projects" class="flex items-center justify-center px-3 py-1 rounded-full text-current hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out" data-astro-cid-hxtyo74s> Projects </a><a href="/services" class="flex items-center justify-center px-3 py-1 rounded-full text-current hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out" data-astro-cid-hxtyo74s> Services </a><a href="/contact" class="flex items-center justify-center px-3 py-1 rounded-full text-current hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out" data-astro-cid-hxtyo74s> Contact </a> </nav> <div class="flex gap-1 mt-5" data-astro-cid-hxtyo74s> <a href="/search" aria-label="Search blog posts and projects on Hussain" class="size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out" data-astro-cid-hxtyo74s> <svg class="size-full" data-astro-cid-hxtyo74s> <use href="/ui.svg#search" data-astro-cid-hxtyo74s></use> </svg> </a> <a href="/rss.xml" target="_blank" aria-label="Rss feed for Hussain" class="size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out" data-astro-cid-hxtyo74s> <svg class="size-full" data-astro-cid-hxtyo74s> <use href="/ui.svg#rss" data-astro-cid-hxtyo74s></use> </svg> </a> <button id="drawer-theme-button" aria-label="Toggle light and dark theme" class="size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out" data-astro-cid-hxtyo74s> <svg class="block dark:hidden size-full" data-astro-cid-hxtyo74s> <use href="/ui.svg#sun" data-astro-cid-hxtyo74s></use> </svg> <svg class="hidden dark:block size-full" data-astro-cid-hxtyo74s> <use href="/ui.svg#moon" data-astro-cid-hxtyo74s></use> </svg> </button> </div> </div>  <main>  <div class="pt-36 pb-5"> <div class="w-full h-full mx-auto px-5 max-w-screen-md">   <div class="animate"> <div> <a href="/blog" class="group w-fit p-1.5 gap-1.5 text-sm flex items-center border rounded hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white"> <line x1="19" y1="12" x2="5" y2="12" class="scale-x-0 group-hover:scale-x-100 translate-x-3 group-hover:translate-x-0 transition-all duration-300 ease-in-out"></line> <polyline points="12 19 5 12 12 5" class="translate-x-1 group-hover:translate-x-0 transition-all duration-300 ease-in-out"></polyline> </svg> <div class="w-full group-hover:text-black group-hover:dark:text-white transition-colors duration-300 ease-in-out">
+Back to blog </div> </a> <div class="flex flex-wrap text-sm uppercase mt-12 gap-3 opacity-75"> <div class="flex items-center gap-2"> <svg class="size-5 stroke-current"> <use href="/ui.svg#calendar"></use> </svg> Sep 26, 2025 </div> <div class="flex items-center gap-2"> <svg class="size-5 stroke-current"> <use href="/ui.svg#book-open"></use> </svg> 7 min read </div> </div> <h1 class="text-3xl font-semibold text-black dark:text-white mt-2"> Building an E-Commerce Store with Laravel Backend + React Frontend </h1> <div class="mt-1"> A step-by-step guide to building an e-commerce store using Laravel for the backend, React with Tailwind CSS for the frontend, and an admin portal for product management. </div>  </div> </div>   </div> </div> <div class="flex-1 py-5"> <div class="w-full h-full mx-auto px-5 max-w-screen-md">   <div class="animate"> <div> <article> <h3 id="introduction">Introduction</h3>
+<p>In this tutorial, I’ll walk you through building a full-stack e-commerce store using Laravel for the backend, React with Tailwind CSS for the frontend, and an admin portal for managing products. We’ll create RESTful APIs with Laravel, connect them to a React frontend, and deploy the app using Vercel.</p>
+<h3 id="why-this-tech-stack">Why This Tech Stack?</h3>
+<ul>
+<li><strong>Laravel</strong>: A robust PHP framework with an elegant ORM (Eloquent) for database management</li>
+<li><strong>React</strong>: A flexible library for building dynamic, component-based UIs</li>
+<li><strong>Tailwind CSS</strong>: A utility-first CSS framework for rapid, responsive styling</li>
+<li><strong>MySQL</strong>: A reliable relational database for storing products and orders</li>
+<li><strong>Vercel</strong>: Simplifies deployment for the React frontend</li>
+<li><strong>Git/GitHub</strong>: For version control and collaboration</li>
+</ul>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>PHP  <kbd>8.1+</kbd>, Composer, and Laravel 10</li>
+<li><kbd>Node.js </kbd>18+ and npm</li>
+<li>MySQL database</li>
+<li>Basic knowledge of Laravel, React, and Git</li>
+</ul>
+<h3 id="step-1-setting-up-the-laravel-backend">Step 1: Setting Up the Laravel Backend</h3>
+<h4 id="initialize-laravel-project">Initialize Laravel Project</h4>
+<p>Create a new Laravel project and navigate into it:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">composer</span><span style="color:#9ECBFF"> create-project</span><span style="color:#9ECBFF"> laravel/laravel</span><span style="color:#9ECBFF"> ecommerce-backend</span></span>
+<span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ecommerce-backend</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">Output:</span></span>
+<span class="line"><span style="color:#B392F0">A</span><span style="color:#9ECBFF"> new</span><span style="color:#9ECBFF"> Laravel</span><span style="color:#9ECBFF"> project</span><span style="color:#9ECBFF"> is</span><span style="color:#9ECBFF"> created</span><span style="color:#9ECBFF"> with</span><span style="color:#9ECBFF"> the</span><span style="color:#9ECBFF"> folder</span><span style="color:#9ECBFF"> structure,</span><span style="color:#9ECBFF"> and</span><span style="color:#9ECBFF"> you're now in the ecommerce-backend directory.</span></span>
+<span class="line"></span></code></pre>
+<p>Configure MySQL Database
+Update the <kbd>.env</kbd> file with your MySQL credentials:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#E1E4E8">DB_CONNECTION</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">mysql</span></span>
+<span class="line"><span style="color:#E1E4E8">DB_HOST</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">127.0.0.1</span></span>
+<span class="line"><span style="color:#E1E4E8">DB_PORT</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">3306</span></span>
+<span class="line"><span style="color:#E1E4E8">DB_DATABASE</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">ecommerce</span></span>
+<span class="line"><span style="color:#E1E4E8">DB_USERNAME</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">root</span></span>
+<span class="line"><span style="color:#E1E4E8">DB_PASSWORD</span><span style="color:#F97583">=</span></span>
+<span class="line"></span></code></pre>
+<p>Run migrations to set up the database:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">php</span><span style="color:#9ECBFF"> artisan</span><span style="color:#9ECBFF"> migrate</span></span>
+<span class="line"></span></code></pre>
+<p>Output:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">Migration</span><span style="color:#9ECBFF"> table</span><span style="color:#9ECBFF"> created</span><span style="color:#9ECBFF"> successfully.</span></span>
+<span class="line"><span style="color:#B392F0">Migrated:</span><span style="color:#9ECBFF"> 2014_10_12_000000_create_users_table</span></span>
+<span class="line"><span style="color:#B392F0">Migrated:</span><span style="color:#9ECBFF"> 2019_08_19_000000_create_failed_jobs_table</span></span>
+<span class="line"></span></code></pre>
+<p>Create Product Model and Migration
+Generate a Product model with a migration:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">php</span><span style="color:#9ECBFF"> artisan</span><span style="color:#9ECBFF"> make:model</span><span style="color:#9ECBFF"> Product</span><span style="color:#79B8FF"> -m</span></span>
+<span class="line"></span></code></pre>
+<p>Output:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">Model</span><span style="color:#9ECBFF"> created</span><span style="color:#9ECBFF"> successfully.</span></span>
+<span class="line"><span style="color:#B392F0">Created</span><span style="color:#9ECBFF"> Migration:</span><span style="color:#9ECBFF"> 2025_09_26_103900_create_products_table</span></span>
+<span class="line"></span></code></pre>
+<p>Update the migration file <kbd>(database/migrations/2025_09_26_103900_create_products_table.php)</kbd>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F97583">&#x3C;?</span><span style="color:#E1E4E8">php</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">use</span><span style="color:#9ECBFF"> Illuminate</span><span style="color:#79B8FF">\D</span><span style="color:#9ECBFF">atabase</span><span style="color:#79B8FF">\M</span><span style="color:#9ECBFF">igrations</span><span style="color:#79B8FF">\M</span><span style="color:#9ECBFF">igration</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">use</span><span style="color:#9ECBFF"> Illuminate</span><span style="color:#79B8FF">\D</span><span style="color:#9ECBFF">atabase</span><span style="color:#79B8FF">\S</span><span style="color:#9ECBFF">chema</span><span style="color:#79B8FF">\B</span><span style="color:#9ECBFF">lueprint</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">use</span><span style="color:#9ECBFF"> Illuminate</span><span style="color:#79B8FF">\S</span><span style="color:#9ECBFF">upport</span><span style="color:#79B8FF">\F</span><span style="color:#9ECBFF">acades</span><span style="color:#79B8FF">\S</span><span style="color:#9ECBFF">chema</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">return</span><span style="color:#9ECBFF"> new</span><span style="color:#9ECBFF"> class</span><span style="color:#9ECBFF"> extends</span><span style="color:#9ECBFF"> Migration</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#B392F0">    public</span><span style="color:#9ECBFF"> function</span><span style="color:#9ECBFF"> up</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#B392F0">        Schema::create(</span><span style="color:#B392F0">'products'</span><span style="color:#B392F0">,</span><span style="color:#9ECBFF"> function</span><span style="color:#E1E4E8"> (Blueprint $table) {</span></span>
+<span class="line"><span style="color:#B392F0">            $table->id</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">            $table</span><span style="color:#9ECBFF">-</span><span style="color:#E1E4E8">></span><span style="color:#9ECBFF">string</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">'name'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">            $table</span><span style="color:#9ECBFF">-</span><span style="color:#E1E4E8">></span><span style="color:#9ECBFF">text</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">'description'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">            $table</span><span style="color:#9ECBFF">-</span><span style="color:#E1E4E8">></span><span style="color:#9ECBFF">decimal</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">'price'</span><span style="color:#B392F0">,</span><span style="color:#9ECBFF"> 8,</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">            $table</span><span style="color:#9ECBFF">-</span><span style="color:#E1E4E8">></span><span style="color:#9ECBFF">integer</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">'stock'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">            $table->timestamps</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">        });</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">    public</span><span style="color:#9ECBFF"> function</span><span style="color:#9ECBFF"> down</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#B392F0">        Schema::dropIfExists(</span><span style="color:#B392F0">'products'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span></code></pre>
+<p>Run the migration:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">php</span><span style="color:#9ECBFF"> artisan</span><span style="color:#9ECBFF"> migrate</span></span>
+<span class="line"></span></code></pre>
+<p>Output:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">Migrated:</span><span style="color:#9ECBFF"> 2025_09_26_103900_create_products_table</span></span>
+<span class="line"></span></code></pre>
+<p><b>Create Product API Routes</b>
+Define API routes in routes/api.php:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F97583">&#x3C;?</span><span style="color:#E1E4E8">php</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">use</span><span style="color:#9ECBFF"> App</span><span style="color:#79B8FF">\H</span><span style="color:#9ECBFF">ttp</span><span style="color:#79B8FF">\C</span><span style="color:#9ECBFF">ontrollers</span><span style="color:#79B8FF">\P</span><span style="color:#9ECBFF">roductController</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">use</span><span style="color:#9ECBFF"> Illuminate</span><span style="color:#79B8FF">\S</span><span style="color:#9ECBFF">upport</span><span style="color:#79B8FF">\F</span><span style="color:#9ECBFF">acades</span><span style="color:#79B8FF">\R</span><span style="color:#9ECBFF">oute</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">Route::get(</span><span style="color:#B392F0">'/products'</span><span style="color:#B392F0">,</span><span style="color:#E1E4E8"> [ProductController::class, </span><span style="color:#9ECBFF">'index']</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">Route::post(</span><span style="color:#B392F0">'/products'</span><span style="color:#B392F0">,</span><span style="color:#E1E4E8"> [ProductController::class, </span><span style="color:#9ECBFF">'store']</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span></code></pre>
+<p><b>Create Product Controller</b>
+Generate a controller for products:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">php</span><span style="color:#9ECBFF"> artisan</span><span style="color:#9ECBFF"> make:controller</span><span style="color:#9ECBFF"> ProductController</span></span>
+<span class="line"></span></code></pre>
+<p>Output:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">Controller</span><span style="color:#9ECBFF"> created</span><span style="color:#9ECBFF"> successfully.</span></span>
+<span class="line"></span></code></pre>
+<p>Update <kbd>app/Http/Controllers/ProductController.php </kbd>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F97583">&#x3C;?</span><span style="color:#E1E4E8">php</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">namespace</span><span style="color:#9ECBFF"> App</span><span style="color:#79B8FF">\H</span><span style="color:#9ECBFF">ttp</span><span style="color:#79B8FF">\C</span><span style="color:#9ECBFF">ontrollers</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">use</span><span style="color:#9ECBFF"> App</span><span style="color:#79B8FF">\M</span><span style="color:#9ECBFF">odels</span><span style="color:#79B8FF">\P</span><span style="color:#9ECBFF">roduct</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">use</span><span style="color:#9ECBFF"> Illuminate</span><span style="color:#79B8FF">\H</span><span style="color:#9ECBFF">ttp</span><span style="color:#79B8FF">\R</span><span style="color:#9ECBFF">equest</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">class</span><span style="color:#9ECBFF"> ProductController</span><span style="color:#9ECBFF"> extends</span><span style="color:#9ECBFF"> Controller</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#B392F0">    public</span><span style="color:#9ECBFF"> function</span><span style="color:#9ECBFF"> index</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> Product::all</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">    public</span><span style="color:#9ECBFF"> function</span><span style="color:#9ECBFF"> store</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">Request</span><span style="color:#E1E4E8"> $request)</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#E1E4E8">        $validated </span><span style="color:#9ECBFF">=</span><span style="color:#E1E4E8"> $request-</span><span style="color:#F97583">></span><span style="color:#9ECBFF">validate</span><span style="color:#E1E4E8">([</span></span>
+<span class="line"><span style="color:#9ECBFF">            'name'</span><span style="color:#F97583"> =></span><span style="color:#9ECBFF"> 'required|string|max:255'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">            'description'</span><span style="color:#F97583"> =></span><span style="color:#9ECBFF"> 'required|string'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">            'price'</span><span style="color:#F97583"> =></span><span style="color:#9ECBFF"> 'required|numeric|min:0'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">            'stock'</span><span style="color:#F97583"> =></span><span style="color:#9ECBFF"> 'required|integer|min:0'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        ]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">        $product </span><span style="color:#9ECBFF">=</span><span style="color:#9ECBFF"> Product::create</span><span style="color:#E1E4E8">($validated);</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> response</span><span style="color:#E1E4E8">()-</span><span style="color:#F97583">></span><span style="color:#9ECBFF">json</span><span style="color:#E1E4E8">($product, 201);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p><b>Start Laravel Server</b>
+Run the development server:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">php</span><span style="color:#9ECBFF"> artisan</span><span style="color:#9ECBFF"> serve</span></span>
+<span class="line"></span></code></pre>
+<p>Output:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">Starting</span><span style="color:#9ECBFF"> Laravel</span><span style="color:#9ECBFF"> development</span><span style="color:#9ECBFF"> server:</span><span style="color:#9ECBFF"> http://127.0.0.1:8000</span></span>
+<span class="line"></span></code></pre>
+<p>The backend API is now available at <kbd><a href="http://127.0.0.1:8000/api/products">http://127.0.0.1:8000/api/products</a></kbd>.</p>
+<p><b>Step 2: Setting Up the React Frontend with Vite</b>
+Initialize React Project with Vite
+Create a new React project using Vite and navigate into it:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> create</span><span style="color:#9ECBFF"> vite@latest</span><span style="color:#9ECBFF"> ecommerce-frontend</span><span style="color:#79B8FF"> --</span><span style="color:#79B8FF"> --template</span><span style="color:#9ECBFF"> react</span></span>
+<span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ecommerce-frontend</span></span>
+<span class="line"></span></code></pre>
+<p>Output:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">✓</span><span style="color:#9ECBFF"> Project</span><span style="color:#9ECBFF"> name:</span><span style="color:#9ECBFF"> ...</span><span style="color:#9ECBFF"> 'ecommerce-frontend'</span></span>
+<span class="line"><span style="color:#B392F0">✓</span><span style="color:#9ECBFF"> Select</span><span style="color:#9ECBFF"> a</span><span style="color:#9ECBFF"> framework:</span><span style="color:#9ECBFF"> ›</span><span style="color:#9ECBFF"> React</span></span>
+<span class="line"><span style="color:#B392F0">✓</span><span style="color:#9ECBFF"> Select</span><span style="color:#9ECBFF"> a</span><span style="color:#9ECBFF"> variant:</span><span style="color:#9ECBFF"> ›</span><span style="color:#9ECBFF"> JavaScript</span></span>
+<span class="line"><span style="color:#B392F0">Scaffolding</span><span style="color:#9ECBFF"> project</span><span style="color:#9ECBFF"> in</span><span style="color:#9ECBFF"> /path/to/ecommerce-frontend...</span></span>
+<span class="line"><span style="color:#B392F0">Done.</span><span style="color:#9ECBFF"> Now</span><span style="color:#9ECBFF"> run:</span></span>
+<span class="line"><span style="color:#79B8FF">  cd</span><span style="color:#9ECBFF"> ecommerce-frontend</span></span>
+<span class="line"><span style="color:#B392F0">  npm</span><span style="color:#9ECBFF"> install</span></span>
+<span class="line"><span style="color:#B392F0">  npm</span><span style="color:#9ECBFF"> run</span><span style="color:#9ECBFF"> dev</span></span>
+<span class="line"></span></code></pre>
+<p>Install the project dependencies:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span></span>
+<span class="line"></span></code></pre>
+<p><b>Install Required Dependencies </b>
+Install React Router for navigation and Axios for API calls</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> react-router-dom</span><span style="color:#9ECBFF"> axios</span></span>
+<span class="line"></span></code></pre>
+<p><b> Install and Configure Tailwind CSS </b>
+Install Tailwind CSS and its peer dependencies:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">Install</span><span style="color:#9ECBFF"> and</span><span style="color:#9ECBFF"> Configure</span><span style="color:#9ECBFF"> Tailwind</span><span style="color:#9ECBFF"> CSS</span></span>
+<span class="line"></span></code></pre>
+<p>Output:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">Created</span><span style="color:#9ECBFF"> Tailwind</span><span style="color:#9ECBFF"> CSS</span><span style="color:#9ECBFF"> config</span><span style="color:#9ECBFF"> file:</span><span style="color:#9ECBFF"> tailwind.config.js</span></span>
+<span class="line"><span style="color:#B392F0">Created</span><span style="color:#9ECBFF"> PostCSS</span><span style="color:#9ECBFF"> config</span><span style="color:#9ECBFF"> file:</span><span style="color:#9ECBFF"> postcss.config.js</span></span>
+<span class="line"></span></code></pre>
+<p>Update <kbd>tailwind.config.js</kbd> to include your template paths:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">/**</span><span style="color:#9ECBFF"> @type</span><span style="color:#9ECBFF"> {import</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">'tailwindcss'</span><span style="color:#E1E4E8">)</span><span style="color:#9ECBFF">.Config}</span><span style="color:#79B8FF"> *</span><span style="color:#9ECBFF">/</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> default {</span></span>
+<span class="line"><span style="color:#B392F0">  content:</span><span style="color:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#B392F0">    "./index.html"</span><span style="color:#B392F0">,</span></span>
+<span class="line"><span style="color:#B392F0">    "./src/**/*.{js,ts,jsx,tsx}"</span><span style="color:#B392F0">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  ],</span></span>
+<span class="line"><span style="color:#B392F0">  theme:</span><span style="color:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#B392F0">    extend:</span><span style="color:#9ECBFF"> {},</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#B392F0">  plugins:</span><span style="color:#E1E4E8"> [],</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Replace the contents of <kbd>src/index.css</kbd> with the Tailwind directives:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">@tailwind</span><span style="color:#9ECBFF"> base</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">@tailwind</span><span style="color:#9ECBFF"> components</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">@tailwind</span><span style="color:#9ECBFF"> utilities</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span></code></pre>
+<p><b>Create the Product List Component</b>
+Create <kbd>src/components/ProductList.jsx</kbd>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">import</span><span style="color:#9ECBFF"> React,</span><span style="color:#9ECBFF"> {</span><span style="color:#9ECBFF"> useEffect,</span><span style="color:#9ECBFF"> useState</span><span style="color:#9ECBFF"> }</span><span style="color:#9ECBFF"> from</span><span style="color:#9ECBFF"> 'react'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">import</span><span style="color:#9ECBFF"> axios</span><span style="color:#9ECBFF"> from</span><span style="color:#9ECBFF"> 'axios'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">const</span><span style="color:#9ECBFF"> ProductList</span><span style="color:#9ECBFF"> =</span><span style="color:#E1E4E8"> () => {</span></span>
+<span class="line"><span style="color:#B392F0">  const</span><span style="color:#E1E4E8"> [products, </span><span style="color:#9ECBFF">setProducts]</span><span style="color:#9ECBFF"> =</span><span style="color:#9ECBFF"> useState</span><span style="color:#E1E4E8">([]);</span></span>
+<span class="line"><span style="color:#B392F0">  const</span><span style="color:#E1E4E8"> [loading, </span><span style="color:#9ECBFF">setLoading]</span><span style="color:#9ECBFF"> =</span><span style="color:#9ECBFF"> useState</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  useEffect((</span><span style="color:#E1E4E8">) => {</span></span>
+<span class="line"><span style="color:#B392F0">    const</span><span style="color:#9ECBFF"> fetchProducts</span><span style="color:#9ECBFF"> =</span><span style="color:#9ECBFF"> async</span><span style="color:#E1E4E8"> () => {</span></span>
+<span class="line"><span style="color:#B392F0">      try</span><span style="color:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#B392F0">        //</span><span style="color:#9ECBFF"> Replace</span><span style="color:#9ECBFF"> with</span><span style="color:#9ECBFF"> your</span><span style="color:#9ECBFF"> Laravel</span><span style="color:#9ECBFF"> API</span><span style="color:#9ECBFF"> endpoint</span></span>
+<span class="line"><span style="color:#B392F0">        const</span><span style="color:#9ECBFF"> response</span><span style="color:#9ECBFF"> =</span><span style="color:#9ECBFF"> await</span><span style="color:#9ECBFF"> axios.get</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">'http://127.0.0.1:8000/api/products'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">        setProducts(response.data</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">        setLoading(false</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">      } catch (</span><span style="color:#B392F0">error</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#B392F0">        console.error(</span><span style="color:#B392F0">"Error fetching products:"</span><span style="color:#B392F0">,</span><span style="color:#9ECBFF"> error</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">        setLoading(false</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">    fetchProducts</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span><span style="color:#B392F0">,</span><span style="color:#E1E4E8"> []);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">loading</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">return</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">div</span><span style="color:#9ECBFF"> className="text-center p-8"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">Loading</span><span style="color:#9ECBFF"> products...</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/di</span><span style="color:#E1E4E8">v</span><span style="color:#F97583">></span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#F97583">    &#x3C;</span><span style="color:#B392F0">div</span><span style="color:#9ECBFF"> className="container mx-auto p-4"</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;</span><span style="color:#B392F0">h1</span><span style="color:#9ECBFF"> className="text-3xl font-bold mb-6"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">Our</span><span style="color:#9ECBFF"> Products</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/h</span><span style="color:#F97583">1></span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;</span><span style="color:#B392F0">div</span><span style="color:#9ECBFF"> className="grid grid-cols-1 md:grid-cols-3 gap-6"</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#E1E4E8">        {</span><span style="color:#B392F0">products.map((product</span><span style="color:#E1E4E8">) =</span><span style="color:#F97583">></span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">div</span><span style="color:#9ECBFF"> key={product.id}</span><span style="color:#9ECBFF"> className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">            &#x3C;</span><span style="color:#B392F0">h2</span><span style="color:#9ECBFF"> className="text-xl font-semibold mb-2"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">{product.name}</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/h</span><span style="color:#F97583">2></span></span>
+<span class="line"><span style="color:#F97583">            &#x3C;</span><span style="color:#B392F0">p</span><span style="color:#9ECBFF"> className="text-gray-600 mb-4"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">{product.description}</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8">p</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">            &#x3C;</span><span style="color:#B392F0">p</span><span style="color:#9ECBFF"> className="text-green-600 font-bold text-lg"</span><span style="color:#F97583">></span><span style="color:#E1E4E8">${product.price}</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8">p</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">            &#x3C;</span><span style="color:#B392F0">p</span><span style="color:#9ECBFF"> className="text-sm text-gray-500"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">In</span><span style="color:#9ECBFF"> Stock:</span><span style="color:#9ECBFF"> {product.stock}</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8">p</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">/div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        ))}</span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;</span><span style="color:#B392F0">/div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">    &#x3C;</span><span style="color:#B392F0">/div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> default ProductList;</span></span>
+<span class="line"></span></code></pre>
+<p><b>Set Up Routing and Update Main App Component</b>
+Update <kbd>src/App.jsx</kbd> to set up routing and include the navigation bar</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">import</span><span style="color:#9ECBFF"> React</span><span style="color:#9ECBFF"> from</span><span style="color:#9ECBFF"> 'react'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">import</span><span style="color:#9ECBFF"> {</span><span style="color:#9ECBFF"> BrowserRouter</span><span style="color:#9ECBFF"> as</span><span style="color:#9ECBFF"> Router,</span><span style="color:#9ECBFF"> Routes,</span><span style="color:#9ECBFF"> Route,</span><span style="color:#9ECBFF"> Link</span><span style="color:#9ECBFF"> }</span><span style="color:#9ECBFF"> from</span><span style="color:#9ECBFF"> 'react-router-dom'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">import</span><span style="color:#9ECBFF"> ProductList</span><span style="color:#9ECBFF"> from</span><span style="color:#9ECBFF"> './components/ProductList'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">import</span><span style="color:#9ECBFF"> AdminPortal</span><span style="color:#9ECBFF"> from</span><span style="color:#9ECBFF"> './components/AdminPortal'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> App</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#F97583">    &#x3C;</span><span style="color:#B392F0">Router</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;</span><span style="color:#B392F0">div</span><span style="color:#9ECBFF"> className="App"</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#E1E4E8">        {</span><span style="color:#B392F0">/*</span><span style="color:#9ECBFF"> Navigation</span><span style="color:#9ECBFF"> Bar</span><span style="color:#79B8FF"> *</span><span style="color:#9ECBFF">/}</span></span>
+<span class="line"><span style="color:#F97583">        &#x3C;</span><span style="color:#B392F0">nav</span><span style="color:#9ECBFF"> className="bg-gray-800 text-white p-4"</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">div</span><span style="color:#9ECBFF"> className="container mx-auto flex justify-between"</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">            &#x3C;</span><span style="color:#B392F0">Link</span><span style="color:#9ECBFF"> to="/"</span><span style="color:#9ECBFF"> className="text-xl font-bold"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">MyStore</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/Lin</span><span style="color:#E1E4E8">k</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">            &#x3C;</span><span style="color:#B392F0">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">              &#x3C;</span><span style="color:#B392F0">Link</span><span style="color:#9ECBFF"> to="/"</span><span style="color:#9ECBFF"> className="mr-4 hover:text-gray-300"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">Home</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/Lin</span><span style="color:#E1E4E8">k</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">              &#x3C;</span><span style="color:#B392F0">Link</span><span style="color:#9ECBFF"> to="/admin"</span><span style="color:#9ECBFF"> className="hover:text-gray-300"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">Admin</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/Lin</span><span style="color:#E1E4E8">k</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">            &#x3C;</span><span style="color:#B392F0">/div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">/div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">        &#x3C;</span><span style="color:#B392F0">/nav</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">        {</span><span style="color:#B392F0">/*</span><span style="color:#9ECBFF"> Route</span><span style="color:#9ECBFF"> Configuration</span><span style="color:#79B8FF"> *</span><span style="color:#9ECBFF">/}</span></span>
+<span class="line"><span style="color:#F97583">        &#x3C;</span><span style="color:#B392F0">Routes</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">Route</span><span style="color:#9ECBFF"> path="/"</span><span style="color:#9ECBFF"> element={</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">ProductList</span><span style="color:#E1E4E8"> /</span><span style="color:#F97583">></span><span style="color:#9ECBFF">}</span><span style="color:#E1E4E8"> /</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">Route</span><span style="color:#9ECBFF"> path="/admin"</span><span style="color:#9ECBFF"> element={</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">AdminPortal</span><span style="color:#E1E4E8"> /</span><span style="color:#F97583">></span><span style="color:#9ECBFF">}</span><span style="color:#E1E4E8"> /</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">        &#x3C;</span><span style="color:#B392F0">/Routes</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;</span><span style="color:#B392F0">/div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">    &#x3C;</span><span style="color:#B392F0">/Router</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> default App;</span></span>
+<span class="line"></span></code></pre>
+<p><b>Start the Vite Development Server</b>
+Run the development server:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> run</span><span style="color:#9ECBFF"> dev</span></span>
+<span class="line"></span></code></pre>
+<p>Output:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">  VITE</span><span style="color:#9ECBFF"> v5.0.0</span><span style="color:#9ECBFF">  ready</span><span style="color:#9ECBFF"> in</span><span style="color:#79B8FF"> 320</span><span style="color:#9ECBFF"> ms</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  ➜</span><span style="color:#9ECBFF">  Local:</span><span style="color:#9ECBFF">   http://localhost:5173/</span></span>
+<span class="line"><span style="color:#B392F0">  ➜</span><span style="color:#9ECBFF">  Network:</span><span style="color:#9ECBFF"> use</span><span style="color:#79B8FF"> --host</span><span style="color:#9ECBFF"> to</span><span style="color:#9ECBFF"> expose</span></span>
+<span class="line"></span></code></pre>
+<p>Your React frontend is now running on <kbd><a href="http://localhost:5173">http://localhost:5173</a></kbd> and will fetch product data from your Laravel backend API</p>
+<p><b>Step 3: Building the Admin Portal</b>
+Create Admin Route in Laravel
+Add an admin route to create products in <kbd>routes/api.php</kbd>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">Route::post(</span><span style="color:#B392F0">'/admin/products'</span><span style="color:#B392F0">,</span><span style="color:#E1E4E8"> [ProductController::class, </span><span style="color:#9ECBFF">'store']</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span></code></pre>
+<p><b>Create Admin Component in React</b>
+Create <kbd>src/components/AdminPortal.tsx</kbd>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">import</span><span style="color:#9ECBFF"> React,</span><span style="color:#9ECBFF"> {</span><span style="color:#9ECBFF"> useState</span><span style="color:#9ECBFF"> }</span><span style="color:#9ECBFF"> from</span><span style="color:#9ECBFF"> 'react'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">const</span><span style="color:#9ECBFF"> AdminPortal:</span><span style="color:#9ECBFF"> React.FC</span><span style="color:#9ECBFF"> =</span><span style="color:#E1E4E8"> () => {</span></span>
+<span class="line"><span style="color:#B392F0">  const</span><span style="color:#E1E4E8"> [formData, </span><span style="color:#9ECBFF">setFormData]</span><span style="color:#9ECBFF"> =</span><span style="color:#9ECBFF"> useState</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#B392F0">    name:</span><span style="color:#9ECBFF"> '',</span></span>
+<span class="line"><span style="color:#B392F0">    description:</span><span style="color:#9ECBFF"> '',</span></span>
+<span class="line"><span style="color:#B392F0">    price:</span><span style="color:#9ECBFF"> 0,</span></span>
+<span class="line"><span style="color:#B392F0">    stock:</span><span style="color:#9ECBFF"> 0,</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  const</span><span style="color:#9ECBFF"> handleSubmit</span><span style="color:#9ECBFF"> =</span><span style="color:#9ECBFF"> async</span><span style="color:#E1E4E8"> (e: </span><span style="color:#9ECBFF">React.FormEvent</span><span style="color:#E1E4E8">) =</span><span style="color:#F97583">></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">    e.preventDefault</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#B392F0">    const</span><span style="color:#9ECBFF"> response</span><span style="color:#9ECBFF"> =</span><span style="color:#9ECBFF"> await</span><span style="color:#9ECBFF"> fetch</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">'http://127.0.0.1:8000/api/admin/products'</span><span style="color:#B392F0">,</span><span style="color:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#B392F0">      method:</span><span style="color:#9ECBFF"> 'POST',</span></span>
+<span class="line"><span style="color:#B392F0">      headers:</span><span style="color:#9ECBFF"> {</span><span style="color:#9ECBFF"> 'Content-Type':</span><span style="color:#9ECBFF"> 'application/json'</span><span style="color:#9ECBFF"> },</span></span>
+<span class="line"><span style="color:#B392F0">      body:</span><span style="color:#9ECBFF"> JSON.stringify</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">formData</span><span style="color:#E1E4E8">)</span><span style="color:#9ECBFF">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    });</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">response.ok</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#B392F0">      alert(</span><span style="color:#B392F0">'Product added successfully!'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">      setFormData(</span><span style="color:#9ECBFF">{</span><span style="color:#9ECBFF"> name:</span><span style="color:#9ECBFF"> '',</span><span style="color:#9ECBFF"> description:</span><span style="color:#9ECBFF"> '',</span><span style="color:#9ECBFF"> price:</span><span style="color:#9ECBFF"> 0,</span><span style="color:#9ECBFF"> stock:</span><span style="color:#79B8FF"> 0</span><span style="color:#9ECBFF"> }</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#F97583">    &#x3C;</span><span style="color:#B392F0">div</span><span style="color:#9ECBFF"> className="container mx-auto p-4"</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;</span><span style="color:#B392F0">h1</span><span style="color:#9ECBFF"> className="text-3xl font-bold mb-4"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">Admin</span><span style="color:#9ECBFF"> Portal</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/h</span><span style="color:#F97583">1></span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;</span><span style="color:#B392F0">div</span><span style="color:#9ECBFF"> className="max-w-md mx-auto bg-white p-6 rounded shadow"</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">        &#x3C;</span><span style="color:#B392F0">h2</span><span style="color:#9ECBFF"> className="text-xl font-semibold mb-4"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">Add</span><span style="color:#9ECBFF"> New</span><span style="color:#9ECBFF"> Product</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/h</span><span style="color:#F97583">2></span></span>
+<span class="line"><span style="color:#F97583">        &#x3C;</span><span style="color:#B392F0">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">label</span><span style="color:#9ECBFF"> className="block text-sm font-medium"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">Name</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/labe</span><span style="color:#E1E4E8">l</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">input</span></span>
+<span class="line"><span style="color:#E1E4E8">            type</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"text"</span></span>
+<span class="line"><span style="color:#E1E4E8">            value</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{</span><span style="color:#B392F0">formData.name}</span></span>
+<span class="line"><span style="color:#E1E4E8">            onChange</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{(</span><span style="color:#B392F0">e</span><span style="color:#E1E4E8">) </span><span style="color:#9ECBFF">=</span><span style="color:#E1E4E8">> </span><span style="color:#9ECBFF">setFormData</span><span style="color:#E1E4E8">({ ...formData, name: e.target.value })}</span></span>
+<span class="line"><span style="color:#E1E4E8">            className</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"w-full p-2 border rounded"</span></span>
+<span class="line"><span style="color:#B392F0">          /</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">label</span><span style="color:#9ECBFF"> className="block text-sm font-medium mt-2"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">Description</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/labe</span><span style="color:#E1E4E8">l</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">textarea</span></span>
+<span class="line"><span style="color:#E1E4E8">            value</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{</span><span style="color:#B392F0">formData.description}</span></span>
+<span class="line"><span style="color:#E1E4E8">            onChange</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{(</span><span style="color:#B392F0">e</span><span style="color:#E1E4E8">) </span><span style="color:#9ECBFF">=</span><span style="color:#E1E4E8">> </span><span style="color:#9ECBFF">setFormData</span><span style="color:#E1E4E8">({ ...formData, description: e.target.value })}</span></span>
+<span class="line"><span style="color:#E1E4E8">            className</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"w-full p-2 border rounded"</span></span>
+<span class="line"><span style="color:#B392F0">          /</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">label</span><span style="color:#9ECBFF"> className="block text-sm font-medium mt-2"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">Price</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/labe</span><span style="color:#E1E4E8">l</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">input</span></span>
+<span class="line"><span style="color:#E1E4E8">            type</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"number"</span></span>
+<span class="line"><span style="color:#E1E4E8">            value</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{</span><span style="color:#B392F0">formData.price}</span></span>
+<span class="line"><span style="color:#E1E4E8">            onChange</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{(</span><span style="color:#B392F0">e</span><span style="color:#E1E4E8">) </span><span style="color:#9ECBFF">=</span><span style="color:#E1E4E8">> </span><span style="color:#9ECBFF">setFormData</span><span style="color:#E1E4E8">({ ...formData, price: parseFloat(e.target.value) })}</span></span>
+<span class="line"><span style="color:#E1E4E8">            className</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"w-full p-2 border rounded"</span></span>
+<span class="line"><span style="color:#B392F0">          /</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">label</span><span style="color:#9ECBFF"> className="block text-sm font-medium mt-2"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">Stock</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/labe</span><span style="color:#E1E4E8">l</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">input</span></span>
+<span class="line"><span style="color:#E1E4E8">            type</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"number"</span></span>
+<span class="line"><span style="color:#E1E4E8">            value</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{</span><span style="color:#B392F0">formData.stock}</span></span>
+<span class="line"><span style="color:#E1E4E8">            onChange</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{(</span><span style="color:#B392F0">e</span><span style="color:#E1E4E8">) </span><span style="color:#9ECBFF">=</span><span style="color:#E1E4E8">> </span><span style="color:#9ECBFF">setFormData</span><span style="color:#E1E4E8">({ ...formData, stock: parseInt(e.target.value) })}</span></span>
+<span class="line"><span style="color:#E1E4E8">            className</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"w-full p-2 border rounded"</span></span>
+<span class="line"><span style="color:#B392F0">          /</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">button</span></span>
+<span class="line"><span style="color:#E1E4E8">            onClick</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{</span><span style="color:#B392F0">handleSubmit}</span></span>
+<span class="line"><span style="color:#E1E4E8">            className</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"mt-4 bg-blue-600 text-white p-2 rounded hover:bg-blue-700"</span></span>
+<span class="line"><span style="color:#F97583">          ></span></span>
+<span class="line"><span style="color:#B392F0">            Add</span><span style="color:#9ECBFF"> Product</span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">/button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">        &#x3C;</span><span style="color:#B392F0">/div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;</span><span style="color:#B392F0">/div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">    &#x3C;</span><span style="color:#B392F0">/div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> default AdminPortal;</span></span>
+<span class="line"></span></code></pre>
+<p>Update <kbd>src/App.tsx</kbd> to include a simple navigation:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">import</span><span style="color:#9ECBFF"> React</span><span style="color:#9ECBFF"> from</span><span style="color:#9ECBFF"> 'react'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">import</span><span style="color:#9ECBFF"> {</span><span style="color:#9ECBFF"> BrowserRouter</span><span style="color:#9ECBFF"> as</span><span style="color:#9ECBFF"> Router,</span><span style="color:#9ECBFF"> Route,</span><span style="color:#9ECBFF"> Link,</span><span style="color:#9ECBFF"> Routes</span><span style="color:#9ECBFF"> }</span><span style="color:#9ECBFF"> from</span><span style="color:#9ECBFF"> 'react-router-dom'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">import</span><span style="color:#9ECBFF"> './index.css'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">import</span><span style="color:#9ECBFF"> ProductList</span><span style="color:#9ECBFF"> from</span><span style="color:#9ECBFF"> './components/ProductList'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">import</span><span style="color:#9ECBFF"> AdminPortal</span><span style="color:#9ECBFF"> from</span><span style="color:#9ECBFF"> './components/AdminPortal'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> App</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#F97583">    &#x3C;</span><span style="color:#B392F0">Router</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;</span><span style="color:#B392F0">div</span><span style="color:#9ECBFF"> className="App"</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">        &#x3C;</span><span style="color:#B392F0">nav</span><span style="color:#9ECBFF"> className="bg-gray-800 text-white p-4"</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">Link</span><span style="color:#9ECBFF"> to="/"</span><span style="color:#9ECBFF"> className="mr-4"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">Home</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/Lin</span><span style="color:#E1E4E8">k</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">Link</span><span style="color:#9ECBFF"> to="/admin"</span><span style="color:#F97583">></span><span style="color:#9ECBFF">Admin</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">/Lin</span><span style="color:#E1E4E8">k</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">        &#x3C;</span><span style="color:#B392F0">/nav</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">        &#x3C;</span><span style="color:#B392F0">Routes</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">Route</span><span style="color:#9ECBFF"> path="/"</span><span style="color:#9ECBFF"> element={</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">ProductList</span><span style="color:#E1E4E8"> /</span><span style="color:#F97583">></span><span style="color:#9ECBFF">}</span><span style="color:#E1E4E8"> /</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#B392F0">Route</span><span style="color:#9ECBFF"> path="/admin"</span><span style="color:#9ECBFF"> element={</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">AdminPortal</span><span style="color:#E1E4E8"> /</span><span style="color:#F97583">></span><span style="color:#9ECBFF">}</span><span style="color:#E1E4E8"> /</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">        &#x3C;</span><span style="color:#B392F0">/Routes</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;</span><span style="color:#B392F0">/div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#F97583">    &#x3C;</span><span style="color:#B392F0">/Router</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> default App;</span></span>
+<span class="line"></span></code></pre>
+<p>Install react-router-dom:</p>
+<p>Update src/App.tsx to include a simple navigation:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> react-router-dom</span></span>
+<span class="line"></span></code></pre>
+<p>Output:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">+</span><span style="color:#9ECBFF"> react-router-dom@6.26.1</span></span>
+<span class="line"><span style="color:#B392F0">added</span><span style="color:#79B8FF"> 1</span><span style="color:#9ECBFF"> package</span></span>
+<span class="line"></span></code></pre>
+<p><b>Step 4: Version Control with Git</b>
+Initialize a Git repository and push to GitHub:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># In ecommerce-backend</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> init</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#9ECBFF"> .</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "Initial commit for Laravel backend"</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> remote</span><span style="color:#9ECBFF"> add</span><span style="color:#9ECBFF"> origin</span><span style="color:#9ECBFF"> https://github.com/yourusername/ecommerce-backend.git</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> push</span><span style="color:#79B8FF"> -u</span><span style="color:#9ECBFF"> origin</span><span style="color:#9ECBFF"> main</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># In ecommerce-frontend</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> init</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#9ECBFF"> .</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "Initial commit for React frontend"</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> remote</span><span style="color:#9ECBFF"> add</span><span style="color:#9ECBFF"> origin</span><span style="color:#9ECBFF"> https://github.com/yourusername/ecommerce-frontend.git</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> push</span><span style="color:#79B8FF"> -u</span><span style="color:#9ECBFF"> origin</span><span style="color:#9ECBFF"> main</span></span>
+<span class="line"></span></code></pre>
+<p><b>Step 5: Deploying to Vercel</b>
+Deploy the React frontend to Vercel:</p>
+<blockquote>
+<p>Push the frontend code to a GitHub repository
+Log in to Vercel, create a new project, and connect your GitHub repository
+Configure the build settings (use default React settings)
+Deploy the app</p>
+</blockquote>
+<p><b>Challenges and Lessons Learned</b></p>
+<ul>
+<li>CORS Issues: I added the cors middleware in Laravel to allow requests from the React frontend</li>
+<li>Type Safety: Using TypeScript in React ensured type-safe API responses, catching errors early</li>
+<li>Styling: Tailwind CSS’s utility classes made it easy to create a responsive grid for products and a clean admin form</li>
+</ul>
+<!-- Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session. --> </article> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/blog/01" class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 blend"> <div class="order-2 w-full h-full group-hover:text-black group-hover:dark:text-white blend"> <div class="flex flex-wrap gap-2"> <div class="text-sm uppercase">
+Prev
+</div> </div> <div class="font-semibold mt-3 text-black dark:text-white"> Step-by-Step Guide: Deploying a MERN Stack Project on Hostinger VPS </div> </div> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="order-1 stroke-current group-hover:stroke-black group-hover:dark:stroke-white rotate-180"> <line x1="5" y1="12" x2="19" y2="12" class="scale-x-0 group-hover:scale-x-100 translate-x-4 group-hover:translate-x-1 transition-all duration-300 ease-in-out"></line> <polyline points="12 5 19 12 12 19" class="translate-x-0 group-hover:translate-x-1 transition-all duration-300 ease-in-out"></polyline> </svg> </a> <a href="/blog/01" class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out"> <div class="w-full h-full text-right group-hover:text-black group-hover:dark:text-white blend"> <div class="text-sm uppercase">
+Next
+</div> <div class="font-semibold mt-3 text-black dark:text-white"> Step-by-Step Guide: Deploying a MERN Stack Project on Hostinger VPS </div> </div> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white"> <line x1="5" y1="12" x2="19" y2="12" class="scale-x-0 group-hover:scale-x-100 translate-x-4 group-hover:translate-x-1 transition-all duration-300 ease-in-out"></line> <polyline points="12 5 19 12 12 19" class="translate-x-0 group-hover:translate-x-1 transition-all duration-300 ease-in-out"></polyline> </svg> </a> </div> </div> </div>   </div> </div>  </main> <footer class="relative bg-white dark:bg-black"> <div class="animate"> <section class="py-5"> <div class="w-full h-full mx-auto px-5 max-w-screen-md">  <div class="flex items-center justify-center sm:justify-end"> <button id="back-to-top" aria-label="Back to top of page" class="group flex w-fit p-1.5 gap-1.5 text-sm items-center border rounded hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white rotate-90"> <line x1="19" y1="12" x2="5" y2="12" class="scale-x-0 group-hover:scale-x-100 translate-x-3 group-hover:translate-x-0 transition-all duration-300 ease-in-out"></line> <polyline points="12 19 5 12 12 5" class="translate-x-1 group-hover:translate-x-0 transition-all duration-300 ease-in-out"></polyline> </svg> <div class="w-full group-hover:text-black group-hover:dark:text-white transition-colors duration-300 ease-in-out">
+Back to top
+</div> </button> </div>  </div> </section> <section class=" py-5 overflow-hidden whitespace-nowrap border-t border-black/10 dark:border-white/25"> <div class="w-full h-full mx-auto px-5 max-w-screen-md">  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3"> <div class="flex flex-col items-center sm:items-start"> <a href="/" class="flex gap-1 w-fit font-semibold text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out"> <svg class="size-6 fill-current"></svg> Hussain </a> </div> <div class="flex gap-2 justify-center sm:justify-end items-center"> <span class="relative flex h-3 w-3"> <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-300"></span> <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span> </span>
+All systems normal
+</div> </div>  </div> </section> <section class=" py-5 overflow-hidden whitespace-nowrap border-t border-black/10 dark:border-white/25"> <div class="w-full h-full mx-auto px-5 max-w-screen-md">  <div class="h-full grid grid-cols-1 sm:grid-cols-2 gap-3"> <div class="order-2 sm:order-1 flex flex-col items-center justify-center sm:items-start"> <div class="legal"> <a href="/legal/terms" class="text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
+Terms
+</a> |
+<a href="/legal/privacy" class="text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
+Privacy
+</a> </div> <div class="text-sm mt-2">
+&copy; 2025-26 | All rights reserved
+</div> </div> <div class="order-1 sm:order-2 flex justify-center sm:justify-end"> <div class="flex flex-wrap gap-1 items-center justify-center"> <a href="mailto:muhammad.hussain.cs8@gmail.com" target="_blank" aria-label="Hussain on Email" class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend"> <svg class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend"> <use href="/social.svg#email"></use> </svg> </a><a href="https://github.com/hussainanjan5" target="_blank" aria-label="Hussain on Github" class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend"> <svg class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend"> <use href="/social.svg#github"></use> </svg> </a><a href="https://www.linkedin.com/in/muhammad-hussain-78b625254" target="_blank" aria-label="Hussain on LinkedIn" class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend"> <svg class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend"> <use href="/social.svg#linkedin"></use> </svg> </a><a href="https://x.com/HussainAnjan?t=O52c0gbSdQwjgKlrwBT3xg&s=09" target="_blank" aria-label="Hussain on Twitter" class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend"> <svg class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend"> <use href="/social.svg#twitter-x"></use> </svg> </a> </div> </div> </div>  </div> </section> </div> </footer> <script>
+  function goBackToTop(event) {
+    event.preventDefault()
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    })
+  }
+
+  function initializeBackToTop() {
+    const backToTop = document.getElementById("back-to-top")
+    backToTop?.addEventListener("click", goBackToTop)
+  }
+
+  document.addEventListener("astro:after-swap", initializeBackToTop)
+  initializeBackToTop()
+</script> </body></html>
