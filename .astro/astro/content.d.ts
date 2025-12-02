@@ -156,14 +156,14 @@ declare module 'astro:content' {
   slug: "01";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".md"] };
 "02/index.md": {
 	id: "02/index.md";
   slug: "02";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".md"] };
 };
 "legal": {
@@ -172,14 +172,14 @@ declare module 'astro:content' {
   slug: "privacy";
   body: string;
   collection: "legal";
-  data: InferEntrySchema<"legal">
+  data: any
 } & { render(): Render[".md"] };
 "terms.md": {
 	id: "terms.md";
   slug: "terms";
   body: string;
   collection: "legal";
-  data: InferEntrySchema<"legal">
+  data: any
 } & { render(): Render[".md"] };
 };
 "projects": {
@@ -188,63 +188,77 @@ declare module 'astro:content' {
   slug: "project-1";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".md"] };
 "project-10/index.md": {
 	id: "project-10/index.md";
   slug: "project-10";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
+} & { render(): Render[".md"] };
+"project-11/index.md": {
+	id: "project-11/index.md";
+  slug: "project-11";
+  body: string;
+  collection: "projects";
+  data: any
+} & { render(): Render[".md"] };
+"project-12/index.md": {
+	id: "project-12/index.md";
+  slug: "project-12";
+  body: string;
+  collection: "projects";
+  data: any
 } & { render(): Render[".md"] };
 "project-2/index.md": {
 	id: "project-2/index.md";
   slug: "project-2";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".md"] };
 "project-3/index.md": {
 	id: "project-3/index.md";
   slug: "project-3";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".md"] };
 "project-5/index.md": {
 	id: "project-5/index.md";
   slug: "project-5";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".md"] };
 "project-6/index.md": {
 	id: "project-6/index.md";
   slug: "project-6";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".md"] };
 "project-7/index.md": {
 	id: "project-7/index.md";
   slug: "project-7";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".md"] };
 "project-8/index.md": {
 	id: "project-8/index.md";
   slug: "project-8";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".md"] };
 "project-9/index.md": {
 	id: "project-9/index.md";
   slug: "project-9";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".md"] };
 };
 "services": {
@@ -253,21 +267,21 @@ declare module 'astro:content' {
   slug: "frontend-development";
   body: string;
   collection: "services";
-  data: InferEntrySchema<"services">
+  data: any
 } & { render(): Render[".md"] };
 "laravel-react.md": {
 	id: "laravel-react.md";
   slug: "laravel-react";
   body: string;
   collection: "services";
-  data: InferEntrySchema<"services">
+  data: any
 } & { render(): Render[".md"] };
 "mern-stack.md": {
 	id: "mern-stack.md";
   slug: "mern-stack";
   body: string;
   collection: "services";
-  data: InferEntrySchema<"services">
+  data: any
 } & { render(): Render[".md"] };
 };
 "work": {
@@ -276,14 +290,14 @@ declare module 'astro:content' {
   slug: "apple";
   body: string;
   collection: "work";
-  data: InferEntrySchema<"work">
+  data: any
 } & { render(): Render[".md"] };
 "google.md": {
 	id: "google.md";
   slug: "google";
   body: string;
   collection: "work";
-  data: InferEntrySchema<"work">
+  data: any
 } & { render(): Render[".md"] };
 };
 
@@ -295,5 +309,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("./../../src/content/config.js");
+	export type ContentConfig = never;
 }
