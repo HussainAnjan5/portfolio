@@ -299,6 +299,13 @@ declare module 'astro:content' {
   collection: "work";
   data: any
 } & { render(): Render[".md"] };
+"hivetech.md": {
+	id: "hivetech.md";
+  slug: "hivetech";
+  body: string;
+  collection: "work";
+  data: any
+} & { render(): Render[".md"] };
 };
 
 	};
