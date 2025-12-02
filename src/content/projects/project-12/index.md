@@ -10,8 +10,8 @@ tags:
 - Mobile Apps
 - ERP
 - Software Development
+demoUrl: https://www.hivetechsols.com/
 ---
-
 # 🏢 Hive Tech Solutions — Digital Growth & Software Excellence  
 
 Hive Tech Solutions is a dynamic digital agency and software development firm that delivers comprehensive services — from SEO and marketing to web/mobile applications and ERP solutions — tailored to help businesses grow, scale and thrive online.  
