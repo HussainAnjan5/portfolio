@@ -156,14 +156,14 @@ declare module 'astro:content' {
   slug: "01";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
 "02/index.md": {
 	id: "02/index.md";
   slug: "02";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
 };
 "legal": {
@@ -172,93 +172,121 @@ declare module 'astro:content' {
   slug: "privacy";
   body: string;
   collection: "legal";
-  data: any
+  data: InferEntrySchema<"legal">
 } & { render(): Render[".md"] };
 "terms.md": {
 	id: "terms.md";
   slug: "terms";
   body: string;
   collection: "legal";
-  data: any
+  data: InferEntrySchema<"legal">
 } & { render(): Render[".md"] };
 };
 "projects": {
+"gmb-dashboard/index.md": {
+	id: "gmb-dashboard/index.md";
+  slug: "gmb-dashboard";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
+"hive-radar/index.md": {
+	id: "hive-radar/index.md";
+  slug: "hive-radar";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
+"hivetalk-ai-voice/index.md": {
+	id: "hivetalk-ai-voice/index.md";
+  slug: "hivetalk-ai-voice";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
 "project-1/index.md": {
 	id: "project-1/index.md";
   slug: "project-1";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
 "project-10/index.md": {
 	id: "project-10/index.md";
   slug: "project-10";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
 "project-11/index.md": {
 	id: "project-11/index.md";
   slug: "project-11";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
 "project-12/index.md": {
 	id: "project-12/index.md";
   slug: "project-12";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
 "project-2/index.md": {
 	id: "project-2/index.md";
   slug: "project-2";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
 "project-3/index.md": {
 	id: "project-3/index.md";
   slug: "project-3";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
 "project-5/index.md": {
 	id: "project-5/index.md";
   slug: "project-5";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
 "project-6/index.md": {
 	id: "project-6/index.md";
   slug: "project-6";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
 "project-7/index.md": {
 	id: "project-7/index.md";
   slug: "project-7";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
 "project-8/index.md": {
 	id: "project-8/index.md";
   slug: "project-8";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
 "project-9/index.md": {
 	id: "project-9/index.md";
   slug: "project-9";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
+"quantum-edge-solutions/index.md": {
+	id: "quantum-edge-solutions/index.md";
+  slug: "quantum-edge-solutions";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
 };
 "services": {
@@ -267,21 +295,21 @@ declare module 'astro:content' {
   slug: "frontend-development";
   body: string;
   collection: "services";
-  data: any
+  data: InferEntrySchema<"services">
 } & { render(): Render[".md"] };
 "laravel-react.md": {
 	id: "laravel-react.md";
   slug: "laravel-react";
   body: string;
   collection: "services";
-  data: any
+  data: InferEntrySchema<"services">
 } & { render(): Render[".md"] };
 "mern-stack.md": {
 	id: "mern-stack.md";
   slug: "mern-stack";
   body: string;
   collection: "services";
-  data: any
+  data: InferEntrySchema<"services">
 } & { render(): Render[".md"] };
 };
 "work": {
@@ -290,21 +318,21 @@ declare module 'astro:content' {
   slug: "apple";
   body: string;
   collection: "work";
-  data: any
+  data: InferEntrySchema<"work">
 } & { render(): Render[".md"] };
 "google.md": {
 	id: "google.md";
   slug: "google";
   body: string;
   collection: "work";
-  data: any
+  data: InferEntrySchema<"work">
 } & { render(): Render[".md"] };
 "hivetech.md": {
 	id: "hivetech.md";
   slug: "hivetech";
   body: string;
   collection: "work";
-  data: any
+  data: InferEntrySchema<"work">
 } & { render(): Render[".md"] };
 };
 
@@ -316,5 +344,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = never;
+	export type ContentConfig = typeof import("./../../src/content/config.js");
 }
