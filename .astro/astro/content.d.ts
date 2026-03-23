@@ -190,6 +190,13 @@ declare module 'astro:content' {
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
+"hive-notes/index.md": {
+	id: "hive-notes/index.md";
+  slug: "hive-notes";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
 "hive-radar/index.md": {
 	id: "hive-radar/index.md";
   slug: "hive-radar";
