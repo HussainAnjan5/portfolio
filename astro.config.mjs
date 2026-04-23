@@ -12,3 +12,5 @@ export default defineConfig({
   adapter: vercel(),
   integrations: [mdx(), sitemap(), solidJs(), tailwind({ applyBaseStyles: false })],
 })
+
+
