@@ -3,7 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import TopLayout from "@layouts/TopLayout.astro";
 import BottomLayout from "@layouts/BottomLayout.astro";
-import { formatDate, readingTime } from "@lib/utils";
+import { readingTime } from "@lib/utils";
 
 export async function getStaticPaths() {
   const services = await getCollection("services");
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"services">;
 const service = Astro.props;
 const { title, summary, description, features, price, icon } = service.data;
-const { collection, body } = service;
+const { body } = service;
 
 // Get the next and prev entries (modulo to wrap index)
 const items = (await getCollection("services"))
