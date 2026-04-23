@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://muhammad-hussain.vercel.app/sitemap-index.xml
