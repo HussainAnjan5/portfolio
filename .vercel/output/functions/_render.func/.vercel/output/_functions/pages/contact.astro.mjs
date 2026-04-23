@@ -1,7 +1,7 @@
 import { c as createComponent, a as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_ClPxBmZm.mjs';
 import 'kleur/colors';
-import { $ as $$PageLayout } from '../chunks/PageLayout_pL7xyJR3.mjs';
-import { $ as $$TopLayout, a as $$BottomLayout } from '../chunks/BottomLayout_ig30kUro.mjs';
+import { $ as $$PageLayout } from '../chunks/PageLayout_ByG620Gb.mjs';
+import { $ as $$TopLayout, a as $$BottomLayout } from '../chunks/BottomLayout_DXvSeueG.mjs';
 /* empty css                                 */
 export { renderers } from '../renderers.mjs';
 
