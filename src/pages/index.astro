@@ -99,15 +99,72 @@ const stack = [
     <p class="m-0 block shrink-0 px-4 py-2 font-medium text-sm text-neutral-900 dark:text-neutral-100">
       GitHub Contributions
     </p>
-    <a href="https://github.com/HussainAnjan5" target="_blank" rel="noopener noreferrer">
-      <img 
-        src="https://ghchart.rshah.org/0066ff/HussainAnjan5" 
-        alt="GitHub Contributions for HussainAnjan5"
-        class="relative flex-1 overflow-hidden rounded-xl border shadow-sm border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950 p-4"
-      />
+    <a href="https://github.com/HussainAnjan5" target="_blank" rel="noopener noreferrer" class="block">
+      <div class="relative overflow-hidden rounded-xl border shadow-sm border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950 p-4">
+        <div id="github-contrib-skeleton" class="absolute inset-4 z-10 space-y-3 animate-pulse">
+          <div class="h-3 w-48 rounded bg-neutral-200 dark:bg-neutral-800"></div>
+          <div class="grid grid-cols-[repeat(16,minmax(0,1fr))] gap-1">
+            {Array.from({ length: 96 }).map(() => (
+              <span class="h-3 w-3 rounded-sm bg-neutral-200 dark:bg-neutral-800"></span>
+            ))}
+          </div>
+        </div>
+
+        <div id="github-contrib-scroll" class="overflow-x-auto">
+          <img
+            id="github-contrib-image"
+            src="/api/github-contributions"
+            alt="GitHub Contributions for HussainAnjan5"
+            decoding="async"
+            class="block max-w-none min-w-[663px] opacity-0 transition-opacity duration-300"
+          />
+        </div>
+
+        <p id="github-contrib-error" class="hidden text-sm text-neutral-500 dark:text-neutral-400">
+          Contributions chart is loading. Please refresh in a moment if it does not appear.
+        </p>
+      </div>
     </a>
+    <p class="px-4 pb-2 pt-1 text-xs text-neutral-500 dark:text-neutral-400">
+      Scroll horizontally to view older activity.
+    </p>
   </div>
 </section>
+
+<script is:inline>
+  const chartImage = document.getElementById("github-contrib-image")
+  const chartSkeleton = document.getElementById("github-contrib-skeleton")
+  const chartError = document.getElementById("github-contrib-error")
+
+  const showChart = () => {
+    chartSkeleton?.classList.add("hidden")
+    chartError?.classList.add("hidden")
+    chartImage?.classList.remove("opacity-0")
+  }
+
+  const showError = () => {
+    chartSkeleton?.classList.add("hidden")
+    chartError?.classList.remove("hidden")
+  }
+
+  if (chartImage) {
+    const errorTimer = setTimeout(showError, 12000)
+
+    if (chartImage.complete && chartImage.naturalWidth > 0) {
+      clearTimeout(errorTimer)
+      showChart()
+    } else {
+      chartImage.addEventListener("load", () => {
+        clearTimeout(errorTimer)
+        showChart()
+      }, { once: true })
+      chartImage.addEventListener("error", () => {
+        clearTimeout(errorTimer)
+        showError()
+      }, { once: true })
+    }
+  }
+</script>
 
         </div>
       </div>
