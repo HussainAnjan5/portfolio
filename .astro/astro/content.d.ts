@@ -183,6 +183,20 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "projects": {
+"aqz-tech-solution/index.md": {
+	id: "aqz-tech-solution/index.md";
+  slug: "aqz-tech-solution";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
+"chgroupmedia/index.md": {
+	id: "chgroupmedia/index.md";
+  slug: "chgroupmedia";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
 "gmb-dashboard/index.md": {
 	id: "gmb-dashboard/index.md";
   slug: "gmb-dashboard";
@@ -197,6 +211,13 @@ declare module 'astro:content' {
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
+"hive-portal/index.md": {
+	id: "hive-portal/index.md";
+  slug: "hive-portal";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
 "hive-radar/index.md": {
 	id: "hive-radar/index.md";
   slug: "hive-radar";
@@ -207,6 +228,13 @@ declare module 'astro:content' {
 "hivetalk-ai-voice/index.md": {
 	id: "hivetalk-ai-voice/index.md";
   slug: "hivetalk-ai-voice";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
+"nextric-digitals/index.md": {
+	id: "nextric-digitals/index.md";
+  slug: "nextric-digitals";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">
@@ -337,6 +365,13 @@ declare module 'astro:content' {
 "hivetech.md": {
 	id: "hivetech.md";
   slug: "hivetech";
+  body: string;
+  collection: "work";
+  data: InferEntrySchema<"work">
+} & { render(): Render[".md"] };
+"ireg.md": {
+	id: "ireg.md";
+  slug: "ireg";
   body: string;
   collection: "work";
   data: InferEntrySchema<"work">
