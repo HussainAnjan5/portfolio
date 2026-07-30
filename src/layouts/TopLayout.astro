@@ -1,9 +1,15 @@
 ---
-import Container from "@components/Container.astro"
+import Container from "@components/Container.astro";
+
+interface Props {
+  containerSize?: "sm" | "md" | "lg" | "xl" | "2xl";
+}
+
+const { containerSize = "md" } = Astro.props;
 ---
 
 <div class="pt-36 pb-5">
-  <Container size="md">
-    <slot/>
+  <Container size={containerSize}>
+    <slot />
   </Container>
 </div>

@@ -325,6 +325,13 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "services": {
+"business-website.md": {
+	id: "business-website.md";
+  slug: "business-website";
+  body: string;
+  collection: "services";
+  data: InferEntrySchema<"services">
+} & { render(): Render[".md"] };
 "frontend-development.md": {
 	id: "frontend-development.md";
   slug: "frontend-development";

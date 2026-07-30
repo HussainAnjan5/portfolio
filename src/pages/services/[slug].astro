@@ -3,7 +3,16 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import TopLayout from "@layouts/TopLayout.astro";
 import BottomLayout from "@layouts/BottomLayout.astro";
+import ServiceIcon from "@components/ServiceIcon.astro";
+import { Check, ArrowRight } from "@lucide/astro";
 import { readingTime } from "@lib/utils";
+
+const businessSystemCards = [
+  { icon: "chart", title: "CRM System", summary: "Customer Relationship Management for sales and support", features: ["Lead Management", "Customer Profiles", "Sales Pipeline", "Reporting Dashboard"] },
+  { icon: "users", title: "HR Management", summary: "Complete HR solution for employee management", features: ["Employee Database", "Leave Management", "Payroll Integration", "Performance Reviews"] },
+  { icon: "graduation", title: "LMS Platform", summary: "Learning Management System for education", features: ["Course Management", "Student Progress", "Quiz System", "Certificate Generation"] },
+  { icon: "briefcase", title: "Employee Management", summary: "Streamlined employee workflow management", features: ["Attendance Tracking", "Task Management", "Document Storage", "Team Collaboration"] },
+];
 
 export async function getStaticPaths() {
   const services = await getCollection("services");
@@ -21,7 +30,7 @@ const { body } = service;
 // Get the next and prev entries (modulo to wrap index)
 const items = (await getCollection("services"))
   .filter(post => !post.data.draft)
-  .sort((a, b) => (b.data.order || 0) - (a.data.order || 0)); // Sort by order instead of date
+  .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
 const index = items.findIndex(x => x.slug === service.slug);
 const prev = items[(index - 1 + items.length) % items.length];
 const next = items[(index + 1) % items.length];
@@ -66,8 +75,10 @@ const next = items[(index + 1) % items.length];
         <div class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-8 text-center">
           <div class="max-w-2xl mx-auto">
             {icon && (
-              <div class="text-6xl mb-6">
-                {icon}
+              <div class="flex justify-center mb-6">
+                <div class="p-4 rounded-xl bg-black text-white dark:bg-white dark:text-black">
+                  <ServiceIcon name={icon} class="size-10" />
+                </div>
               </div>
             )}
             <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -96,9 +107,7 @@ const next = items[(index + 1) % items.length];
             <ul class="space-y-3">
               {features.map((feature) => (
                 <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
-                  <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
+                  <Check class="w-5 h-5 text-green-500 flex-shrink-0" stroke-width={2.5} />
                   <span>{feature}</span>
                 </li>
               ))}
@@ -110,81 +119,37 @@ const next = items[(index + 1) % items.length];
         <div class="mb-12">
           <h2 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Business Management Systems</h2>
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- CRM System Card -->
-            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
-              <div class="p-6 text-center">
-                <div class="text-4xl mb-4">📊</div>
-                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">CRM System</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Customer Relationship Management for sales and support</p>
-                <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-1 mb-4">
-                  <li>Lead Management</li>
-                  <li>Customer Profiles</li>
-                  <li>Sales Pipeline</li>
-                  <li>Reporting Dashboard</li>
-                </ul>
-                <div class="text-lg font-bold text-blue-600 dark:text-blue-400">$15</div>
+            {businessSystemCards.map((card) => (
+              <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
+                <div class="p-6 text-center">
+                  <div class="flex justify-center mb-4">
+                    <div class="p-2.5 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
+                      <ServiceIcon name={card.icon} class="size-6" />
+                    </div>
+                  </div>
+                  <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{card.title}</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">{card.summary}</p>
+                  <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-1 mb-4">
+                    {card.features.map((feature) => (
+                      <li>{feature}</li>
+                    ))}
+                  </ul>
+                  <div class="text-lg font-bold text-blue-600 dark:text-blue-400">$15</div>
+                </div>
               </div>
-            </div>
-
-            <!-- HR Management System Card -->
-            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
-              <div class="p-6 text-center">
-                <div class="text-4xl mb-4">👥</div>
-                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">HR Management</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Complete HR solution for employee management</p>
-                <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-1 mb-4">
-                  <li>Employee Database</li>
-                  <li>Leave Management</li>
-                  <li>Payroll Integration</li>
-                  <li>Performance Reviews</li>
-                </ul>
-                <div class="text-lg font-bold text-blue-600 dark:text-blue-400">$15</div>
-              </div>
-            </div>
-
-            <!-- LMS Card -->
-            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
-              <div class="p-6 text-center">
-                <div class="text-4xl mb-4">🎓</div>
-                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">LMS Platform</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Learning Management System for education</p>
-                <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-1 mb-4">
-                  <li>Course Management</li>
-                  <li>Student Progress</li>
-                  <li>Quiz System</li>
-                  <li>Certificate Generation</li>
-                </ul>
-                <div class="text-lg font-bold text-blue-600 dark:text-blue-400">$15</div>
-              </div>
-            </div>
-
-            <!-- Employee Management Card -->
-            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
-              <div class="p-6 text-center">
-                <div class="text-4xl mb-4">💼</div>
-                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Employee Management</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Streamlined employee workflow management</p>
-                <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-1 mb-4">
-                  <li>Attendance Tracking</li>
-                  <li>Task Management</li>
-                  <li>Document Storage</li>
-                  <li>Team Collaboration</li>
-                </ul>
-                <div class="text-lg font-bold text-blue-600 dark:text-blue-400">$15</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
         <!-- Call to Action -->
-        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white mb-8">
-          <h2 class="text-2xl font-bold mb-4">Ready to Get Started?</h2>
-          <p class="text-blue-100 mb-6">Let's discuss your project requirements and create something amazing together.</p>
-          <a href="/contact" class="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+        <div class="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 text-center text-white mb-8">
+          <h2 class="text-2xl font-bold mb-4">Ready to Grow Your Business Online?</h2>
+          <p class="text-gray-300 mb-6 max-w-xl mx-auto">
+            Let's build a solution that generates leads, wins customers, and supports your growth.
+          </p>
+          <a href="/contact" class="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
             Get Free Consultation
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
+            <ArrowRight class="w-4 h-4" stroke-width={2.5} />
           </a>
         </div>
 

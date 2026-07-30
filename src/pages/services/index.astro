@@ -1,23 +1,20 @@
 ---
-// src/pages/services/index.astro
 import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import TopLayout from "@layouts/TopLayout.astro";
 import BottomLayout from "@layouts/BottomLayout.astro";
+import ServiceIcon from "@components/ServiceIcon.astro";
+import { Check, X, ArrowRight } from "@lucide/astro";
 import { SERVICES } from "@consts";
 
 const services = (await getCollection("services"))
   .filter((service) => !service.data.draft)
   .sort((a, b) => a.data.order - b.data.order);
 
-// Define which service should be popular and centered based on title
-const getIsPopular = (serviceTitle: string): boolean => {
-  return serviceTitle.toLowerCase().includes("laravel") && serviceTitle.toLowerCase().includes("react");
-};
+const getIsPopular = (slug: string): boolean => slug === "business-website";
 
-// Prepare service details for client-side
 const serviceDetailsJSON = JSON.stringify(
-  services.reduce((acc: Record<string, any>, service) => {
+  services.reduce((acc: Record<string, unknown>, service) => {
     acc[service.slug] = {
       title: service.data.title,
       icon: service.data.icon,
@@ -31,7 +28,6 @@ const serviceDetailsJSON = JSON.stringify(
   }, {})
 );
 
-// Additional business systems data
 const businessSystems: Array<{
   slug: string;
   title: string;
@@ -45,7 +41,7 @@ const businessSystems: Array<{
   {
     slug: "crm-system",
     title: "CRM System",
-    icon: "📊",
+    icon: "chart",
     price: "$15",
     summary: "Customer Relationship Management for sales and support",
     description:
@@ -65,7 +61,7 @@ const businessSystems: Array<{
   {
     slug: "hr-management",
     title: "HR Management System",
-    icon: "👥",
+    icon: "users",
     price: "$15",
     summary: "Complete HR solution for employee management",
     description:
@@ -85,7 +81,7 @@ const businessSystems: Array<{
   {
     slug: "lms-platform",
     title: "LMS Platform",
-    icon: "🎓",
+    icon: "graduation",
     price: "$15",
     summary: "Learning Management System for education and training",
     description:
@@ -105,7 +101,7 @@ const businessSystems: Array<{
   {
     slug: "employee-management",
     title: "Employee Management System",
-    icon: "💼",
+    icon: "briefcase",
     price: "$15",
     summary: "Streamlined employee workflow management",
     description:
@@ -124,7 +120,27 @@ const businessSystems: Array<{
   },
 ];
 
-// Define common features that most services and systems support
+const outcomes = [
+  {
+    icon: "trending",
+    title: "Get Found Online",
+    description:
+      "SEO-ready structure, fast mobile performance, and clear service pages so customers discover your business on Google.",
+  },
+  {
+    icon: "target",
+    title: "Generate Leads",
+    description:
+      "Conversion-focused layouts, contact forms, and strong CTAs that turn visitors into inquiries and booked jobs.",
+  },
+  {
+    icon: "megaphone",
+    title: "Win More Customers",
+    description:
+      "Trust-building content, professional branding, and analytics-ready setup to grow credibility and repeat business.",
+  },
+];
+
 const commonFeatures = [
   "Responsive Design",
   "Mobile Optimization",
@@ -148,7 +164,7 @@ const commonFeatures = [
 ---
 
 <PageLayout title={SERVICES.TITLE} description={SERVICES.DESCRIPTION}>
-  <TopLayout>
+  <TopLayout containerSize="xl">
     <div class="animate">
       <div class="text-center max-w-4xl mx-auto">
         <h1 class="text-3xl font-bold text-black dark:text-white mt-2">
@@ -157,83 +173,115 @@ const commonFeatures = [
         <div class="mt-3 text-base text-gray-600 dark:text-gray-300">
           {SERVICES.DESCRIPTION}
         </div>
+        <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          I help local and online businesses grow with websites and web systems designed to attract visitors,
+          capture leads, and convert interest into paying customers.
+        </p>
       </div>
     </div>
   </TopLayout>
-  <BottomLayout>
+  <BottomLayout containerSize="xl">
     <div class="animate">
+      <!-- Outcomes -->
+      <section class="mb-16">
+        <h2 class="text-xl font-bold text-center mb-2 text-gray-900 dark:text-white">
+          How I Help You Grow
+        </h2>
+        <p class="text-center text-sm text-gray-600 dark:text-gray-300 mb-8 max-w-xl mx-auto">
+          Every project is built around real business outcomes—not just code.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6">
+          {outcomes.map((outcome) => (
+            <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-6 text-center">
+              <div class="flex justify-center mb-4">
+                <div class="p-3 rounded-lg bg-black text-white dark:bg-white dark:text-black">
+                  <ServiceIcon name={outcome.icon} class="size-6" />
+                </div>
+              </div>
+              <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">{outcome.title}</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{outcome.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <!-- Web Development Services -->
       <section class="mb-16">
-        <h2 class="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">Web Development Services</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <h2 class="text-2xl font-bold text-center mb-2 text-gray-900 dark:text-white">
+          Growth-Focused Web Services
+        </h2>
+        <p class="text-center text-sm text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          From lead-generating business websites to full-stack platforms that support your operations.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto mb-8">
           {services.map((service) => {
-            const isPopular = getIsPopular(service.data.title);
+            const isPopular = getIsPopular(service.slug);
             return (
               <div
-                class={`group relative bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border overflow-hidden ${
-                  isPopular ? "lg:scale-105 lg:-translate-y-1 border-gray-300 dark:border-gray-400 lg:order-0" : "border-gray-100 dark:border-gray-700"
+                class={`group relative flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border overflow-hidden ${
+                  isPopular
+                    ? "border-gray-300 dark:border-gray-400"
+                    : "border-gray-100 dark:border-gray-700"
                 }`}
-                style={isPopular ? "order: " : ""}
               >
                 {isPopular && (
-                  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-black text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-black text-white dark:bg-white dark:text-black px-3 py-1 rounded-full text-xs font-semibold z-10">
                     Most Popular
                   </div>
                 )}
-                <div class="p-6">
-                  <!-- Header -->
+                <div class="flex flex-col h-full p-5 md:p-6 pt-8">
                   <div class="text-center mb-4">
                     <div class="flex justify-center mb-3">
                       {service.data.icon && (
-                        <div class="text-3xl p-2 mt-2 rounded-lg bg-black text-white">
-                          {service.data.icon}
+                        <div
+                          class={`p-2.5 rounded-lg ${
+                            isPopular
+                              ? "bg-black text-white dark:bg-white dark:text-black"
+                              : "bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-white"
+                          }`}
+                        >
+                          <ServiceIcon name={service.data.icon} class="size-6" />
                         </div>
                       )}
                     </div>
-                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
                       {service.data.title}
                     </h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3">
                       {service.data.summary}
                     </p>
                   </div>
 
-                  <!-- Price -->
                   {service.data.price && (
                     <div class="text-center mb-4">
                       <div class="text-gray-900 dark:text-white">
                         <span class="text-2xl font-bold">{service.data.price}</span>
                         <span class="text-base font-medium">/hour</span>
                       </div>
-                      <div class="text-xs text-gray-500 dark:text-gray-400">
-                        Starting from
-                      </div>
+                      <div class="text-xs text-gray-500 dark:text-gray-400">Starting from</div>
                     </div>
                   )}
 
-                  <!-- Features -->
-                  <ul class="space-y-2 mb-4">
-                    {service.data.features.slice(0, 5).map((feature) => (
-                      <li class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
-                        <svg class="w-3 h-3 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="leading-tight">{feature}</span>
+                  <ul class="space-y-2 mb-4 flex-grow">
+                    {service.data.features.slice(0, 3).map((feature) => (
+                      <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                        <Check class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" stroke-width={2.5} />
+                        <span class="leading-snug">{feature}</span>
                       </li>
                     ))}
-                    {service.data.features.length > 5 && (
+                    {service.data.features.length > 3 && (
                       <li class="text-xs text-blue-600 dark:text-blue-400 font-medium">
-                        + {service.data.features.length - 5} more features
+                        + {service.data.features.length - 3} more features
                       </li>
                     )}
                   </ul>
 
-                  <!-- CTA Button -->
                   <button
-                    onclick={`showServiceDetails('${service.slug}')`}
-                    class={`w-full text-center py-2 px-3 rounded-lg font-medium transition-all duration-300 text-sm ${
+                    type="button"
+                    data-service-slug={service.slug}
+                    class={`service-details-btn mt-auto w-full text-center py-2.5 px-3 rounded-lg font-medium transition-all duration-300 text-sm ${
                       isPopular
-                        ? "bg-black hover:bg-gray-800 text-white shadow-md"
+                        ? "bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black shadow-md"
                         : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white"
                     }`}
                   >
@@ -248,55 +296,47 @@ const commonFeatures = [
 
       <!-- Business Management Systems -->
       <section class="mb-16">
-        <h2 class="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">Business Management Systems</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <h2 class="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+          Business Management Systems
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto mb-8">
           {businessSystems.map((system) => (
-            <div class="group relative bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
-              <div class="p-6 text-center">
+            <div class="group relative flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
+              <div class="flex flex-col h-full p-5 md:p-6 text-center">
                 <div class="flex justify-center mb-4">
-                  <div class="text-3xl p-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
-                    {system.icon}
+                  <div class="p-2.5 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
+                    <ServiceIcon name={system.icon} class="size-6" />
                   </div>
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                  {system.title}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                  {system.summary}
-                </p>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{system.title}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed line-clamp-3">{system.summary}</p>
 
-                <!-- Price -->
                 <div class="text-center mb-4">
                   <div class="text-gray-900 dark:text-white">
                     <span class="text-xl font-bold">{system.price}</span>
                     <span class="text-sm">/hour</span>
                   </div>
-                  <div class="text-xs text-gray-500 dark:text-gray-400">
-                    Starting from
-                  </div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">Starting from</div>
                 </div>
 
-                <!-- Features -->
-                <ul class="space-y-2 mb-4">
-                  {system.features.slice(0, 4).map((feature) => (
-                    <li class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
-                      <svg class="w-3 h-3 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                      </svg>
-                      <span class="leading-tight">{feature}</span>
+                <ul class="space-y-2 mb-4 flex-grow text-left">
+                  {system.features.slice(0, 3).map((feature) => (
+                    <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                      <Check class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" stroke-width={2.5} />
+                      <span class="leading-snug">{feature}</span>
                     </li>
                   ))}
-                  {system.features.length > 4 && (
+                  {system.features.length > 3 && (
                     <li class="text-xs text-blue-600 dark:text-blue-400 font-medium">
-                      + {system.features.length - 4} more features
+                      + {system.features.length - 3} more features
                     </li>
                   )}
                 </ul>
 
-                <!-- CTA Button -->
                 <button
-                  onclick={`showBusinessSystemDetails('${system.slug}')`}
-                  class="w-full text-center py-2 px-3 rounded-lg font-medium transition-all duration-300 text-sm bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:hover:bg-blue-900/50 text-blue-600 dark:text-blue-400"
+                  type="button"
+                  data-system-slug={system.slug}
+                  class="business-details-btn mt-auto w-full text-center py-2.5 px-3 rounded-lg font-medium transition-all duration-300 text-sm bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:hover:bg-blue-900/50 text-blue-600 dark:text-blue-400"
                 >
                   View Details
                 </button>
@@ -307,15 +347,32 @@ const commonFeatures = [
       </section>
 
       <!-- Service Details Modal -->
-      <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+      <div
+        id="serviceModal"
+        class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
         <div class="bg-white dark:bg-gray-800 rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
           <div class="p-6">
-            <div class="flex justify-between items-center mb-4">
-              <h3 id="modalTitle" class="text-xl font-bold text-gray-900 dark:text-white"></h3>
-              <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
+            <div class="flex justify-between items-start gap-4 mb-4">
+              <div class="flex items-center gap-3">
+                <div
+                  id="modalIconWrap"
+                  class="hidden p-2 rounded-lg bg-black text-white dark:bg-white dark:text-black"
+                >
+                  <span id="modalIconLabel" class="text-xs font-medium uppercase tracking-wide"></span>
+                </div>
+                <h3 id="modalTitle" class="text-xl font-bold text-gray-900 dark:text-white"></h3>
+              </div>
+              <button
+                type="button"
+                id="modalCloseBtn"
+                class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 p-1"
+                aria-label="Close"
+              >
+                <X class="w-6 h-6" stroke-width={2} />
               </button>
             </div>
             <div id="modalContent"></div>
@@ -323,25 +380,26 @@ const commonFeatures = [
         </div>
       </div>
 
-      <!-- Hidden element with service details data -->
-      <script is:inline id="serviceDetailsData" type="application/json" set:html={serviceDetailsJSON}></script>
-      <script is:inline id="businessSystemsData" type="application/json" set:html={JSON.stringify(businessSystems)}></script>
+      <script is:inline id="serviceDetailsData" type="application/json" set:html={serviceDetailsJSON} />
+      <script is:inline id="businessSystemsData" type="application/json" set:html={JSON.stringify(businessSystems)} />
 
       <!-- Comparison Table -->
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 mb-12 mx-auto">
-        <h2 class="text-xl font-bold text-center mb-6 text-gray-900 dark:text-white">
-          Service Comparison
-        </h2>
+        <h2 class="text-xl font-bold text-center mb-6 text-gray-900 dark:text-white">Service Comparison</h2>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
               <tr class="border-b border-gray-200 dark:border-gray-600">
                 <th class="text-left pb-3 font-semibold text-gray-900 dark:text-white">Features & Services</th>
                 {services.map((service) => (
-                  <th class="text-center pb-3 font-semibold text-gray-900 dark:text-white">{service.data.title}</th>
+                  <th class="text-center pb-3 font-semibold text-gray-900 dark:text-white min-w-[5rem]">
+                    {service.data.title}
+                  </th>
                 ))}
                 {businessSystems.map((system) => (
-                  <th class="text-center pb-3 font-semibold text-gray-900 dark:text-white">{system.title}</th>
+                  <th class="text-center pb-3 font-semibold text-gray-900 dark:text-white min-w-[5rem]">
+                    {system.title}
+                  </th>
                 ))}
               </tr>
             </thead>
@@ -350,41 +408,35 @@ const commonFeatures = [
                 <tr class="border-b border-gray-100 dark:border-gray-700">
                   <td class="py-3 text-gray-700 dark:text-gray-300 font-medium">{feature}</td>
                   {services.map((service) => {
-                    // Assume most features are supported unless explicitly excluded
-                    const excludedFeatures = ["Payment Integration", "Cloud Deployment"]; // Example: customize based on your services
-                    const hasFeature = !excludedFeatures.includes(feature) || service.data.features.some((f) =>
-                      f.toLowerCase().includes(feature.toLowerCase().split(" ")[0])
-                    );
+                    const excludedFeatures = ["Payment Integration", "Cloud Deployment"];
+                    const hasFeature =
+                      !excludedFeatures.includes(feature) ||
+                      service.data.features.some((f) =>
+                        f.toLowerCase().includes(feature.toLowerCase().split(" ")[0])
+                      );
                     return (
                       <td class="text-center py-3">
                         {hasFeature ? (
-                          <svg class="w-4 h-4 text-green-500 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                          </svg>
+                          <Check class="w-4 h-4 text-green-500 mx-auto" stroke-width={2.5} />
                         ) : (
-                          <svg class="w-4 h-4 text-gray-300 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                          </svg>
+                          <X class="w-4 h-4 text-gray-300 dark:text-gray-600 mx-auto" stroke-width={2.5} />
                         )}
                       </td>
                     );
                   })}
                   {businessSystems.map((system) => {
-                    // Assume most features are supported unless explicitly excluded
-                    const excludedFeatures = ["SEO Friendly", "Cross-browser Compatible"]; // Example: customize based on your systems
-                    const hasFeature = !excludedFeatures.includes(feature) || system.features.some((f) =>
-                      f.toLowerCase().includes(feature.toLowerCase().split(" ")[0])
-                    );
+                    const excludedFeatures = ["SEO Friendly", "Cross-browser Compatible"];
+                    const hasFeature =
+                      !excludedFeatures.includes(feature) ||
+                      system.features.some((f) =>
+                        f.toLowerCase().includes(feature.toLowerCase().split(" ")[0])
+                      );
                     return (
                       <td class="text-center py-3">
                         {hasFeature ? (
-                          <svg class="w-4 h-4 text-green-500 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                          </svg>
+                          <Check class="w-4 h-4 text-green-500 mx-auto" stroke-width={2.5} />
                         ) : (
-                          <svg class="w-4 h-4 text-gray-300 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                          </svg>
+                          <X class="w-4 h-4 text-gray-300 dark:text-gray-600 mx-auto" stroke-width={2.5} />
                         )}
                       </td>
                     );
@@ -394,6 +446,21 @@ const commonFeatures = [
             </tbody>
           </table>
         </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 text-center text-white mb-12">
+        <h2 class="text-2xl font-bold mb-3">Ready to Grow Your Business Online?</h2>
+        <p class="text-gray-300 mb-6 max-w-xl mx-auto text-sm leading-relaxed">
+          Let's build a website or platform that brings you more leads, more customers, and measurable growth.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+        >
+          Get Free Consultation
+          <ArrowRight class="w-4 h-4" stroke-width={2.5} />
+        </a>
       </div>
 
       <!-- Skills Showcase -->
@@ -439,19 +506,129 @@ const commonFeatures = [
   </BottomLayout>
 </PageLayout>
 
+<script>
+  function getDetailsData() {
+    const el = document.getElementById("serviceDetailsData");
+    return el ? JSON.parse(el.textContent || "{}") : {};
+  }
+
+  function getBusinessData() {
+    const el = document.getElementById("businessSystemsData");
+    return el ? JSON.parse(el.textContent || "[]") : [];
+  }
+
+  function renderModal(item: {
+    title: string;
+    summary?: string;
+    description?: string;
+    price?: string;
+    features?: string[];
+    tags?: string[];
+    icon?: string;
+  }) {
+    const modal = document.getElementById("serviceModal");
+    const titleEl = document.getElementById("modalTitle");
+    const contentEl = document.getElementById("modalContent");
+    const iconWrap = document.getElementById("modalIconWrap");
+    const iconLabel = document.getElementById("modalIconLabel");
+
+    if (!modal || !titleEl || !contentEl) return;
+
+    titleEl.textContent = item.title;
+
+    if (iconWrap && iconLabel && item.icon) {
+      iconWrap.classList.remove("hidden");
+      iconLabel.textContent = item.icon;
+    } else if (iconWrap) {
+      iconWrap.classList.add("hidden");
+    }
+
+    const featuresHtml = (item.features || [])
+      .map(
+        (f) =>
+          `<li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+            <span class="text-green-500 mt-0.5">✓</span><span>${f}</span>
+          </li>`
+      )
+      .join("");
+
+    const tagsHtml = (item.tags || [])
+      .map(
+        (t) =>
+          `<span class="px-2 py-0.5 text-xs rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">${t}</span>`
+      )
+      .join(" ");
+
+    contentEl.innerHTML = `
+      ${item.summary ? `<p class="text-gray-600 dark:text-gray-300 mb-4">${item.summary}</p>` : ""}
+      ${item.description ? `<p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">${item.description}</p>` : ""}
+      ${item.price ? `<p class="text-lg font-bold text-gray-900 dark:text-white mb-4">${item.price}<span class="text-sm font-normal text-gray-500">/hour</span></p>` : ""}
+      ${featuresHtml ? `<ul class="space-y-2 mb-4">${featuresHtml}</ul>` : ""}
+      ${tagsHtml ? `<div class="flex flex-wrap gap-2">${tagsHtml}</div>` : ""}
+      <a href="/contact" class="inline-block mt-6 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">Get in touch →</a>
+    `;
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("serviceModal");
+    if (!modal) return;
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.style.overflow = "";
+  }
+
+  function showServiceDetails(slug: string) {
+    const data = getDetailsData();
+    const item = data[slug];
+    if (item) renderModal(item);
+  }
+
+  function showBusinessSystemDetails(slug: string) {
+    const systems = getBusinessData();
+    const item = systems.find((s: { slug: string }) => s.slug === slug);
+    if (item) renderModal(item);
+  }
+
+  function initServicesPage() {
+    document.querySelectorAll(".service-details-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const slug = btn.getAttribute("data-service-slug");
+        if (slug) showServiceDetails(slug);
+      });
+    });
+
+    document.querySelectorAll(".business-details-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const slug = btn.getAttribute("data-system-slug");
+        if (slug) showBusinessSystemDetails(slug);
+      });
+    });
+
+    document.getElementById("modalCloseBtn")?.addEventListener("click", closeModal);
+
+    document.getElementById("serviceModal")?.addEventListener("click", (e) => {
+      if (e.target === e.currentTarget) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  }
+
+  initServicesPage();
+  document.addEventListener("astro:page-load", initServicesPage);
+</script>
+
 <style>
-.group:hover {
-  transform: translateY(-2px);
-}
+  .group:hover {
+    transform: translateY(-2px);
+  }
 
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-#serviceModal {
-  backdrop-filter: blur(4px);
-}
+  #serviceModal {
+    backdrop-filter: blur(4px);
+  }
 </style>

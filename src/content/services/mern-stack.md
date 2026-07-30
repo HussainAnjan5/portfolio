@@ -1,8 +1,8 @@
 ---
 title: "MERN Stack Development"
-summary: "Full-stack applications with MongoDB, Express, React, and Node.js"
-description: "Specializing in MERN stack development, I build scalable full-stack applications with modern architecture. Perfect for startups and businesses needing robust web solutions."
-icon: "⚡"
+summary: "Full-stack web apps that scale your business operations and customer-facing products"
+description: "Specializing in MERN stack development, I build scalable full-stack applications with modern architecture—ideal for startups and businesses that need robust web platforms to support growth, user accounts, and real-time features."
+icon: "zap"
 features:
   - "MongoDB database design"
   - "RESTful API development"

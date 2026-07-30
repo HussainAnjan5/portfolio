@@ -1,8 +1,8 @@
 ---
 title: "Frontend Development"
-summary: "Beautiful, interactive user interfaces with React and modern frameworks"
-description: "I specialize in creating engaging user interfaces that provide excellent user experience. Using React, Next.js, and modern CSS frameworks to bring your designs to life."
-icon: "🎨"
+summary: "Polished, fast interfaces that keep visitors engaged and guide them toward action"
+description: "I create engaging user interfaces that turn visitors into leads and customers. Using React, Next.js, and modern CSS frameworks, I build fast, accessible frontends that support your business goals and brand credibility."
+icon: "palette"
 features:
   - "React/Next.js development"
   - "Component-based architecture"
