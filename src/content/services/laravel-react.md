@@ -1,8 +1,8 @@
 ---
 title: "Laravel + React Full Stack"
-summary: "Robust applications combining Laravel backend with React frontend"
-description: "Powerful full-stack solutions using Laravel for robust backend API and React for dynamic frontend. Ideal for complex business applications requiring reliability and scalability."
-icon: "🚀"
+summary: "Reliable full-stack apps for businesses that need secure backends and dynamic customer experiences"
+description: "Powerful full-stack solutions using Laravel for a robust backend API and React for a dynamic frontend. Ideal for complex business applications—dashboards, portals, and customer tools—that need reliability, security, and room to scale."
+icon: "rocket"
 features:
   - "Laravel backend API development"
   - "React frontend integration"

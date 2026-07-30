@@ -100,5 +100,5 @@ export const SOCIALS: Socials = [
 ]
 export const SERVICES = {
   TITLE: "Services",
-  DESCRIPTION: "Professional web development services tailored to your needs. From frontend to full-stack solutions.",
+  DESCRIPTION: "Business websites and web solutions built to grow your brand online, generate leads, and win more customers.",
 } as const;

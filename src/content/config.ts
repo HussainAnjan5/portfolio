@@ -47,7 +47,7 @@ const services = defineCollection({
     title: z.string(),
     summary: z.string(),
     description: z.string(),
-    icon: z.string().optional(),
+    icon: z.string().optional(), // Lucide key: zap, rocket, palette, globe, chart, users, etc.
     features: z.array(z.string()),
     price: z.string().optional(),
     tags: z.array(z.string()),

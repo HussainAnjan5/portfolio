@@ -1,0 +1,41 @@
+---
+import {
+  Zap,
+  Rocket,
+  Palette,
+  Globe,
+  ChartColumn,
+  Users,
+  GraduationCap,
+  Briefcase,
+  TrendingUp,
+  Target,
+  Megaphone,
+  LayoutGrid,
+} from "@lucide/astro";
+
+interface Props {
+  name?: string;
+  class?: string;
+}
+
+const { name = "layout", class: className = "size-6" } = Astro.props;
+
+const icons: Record<string, typeof Zap> = {
+  zap: Zap,
+  rocket: Rocket,
+  palette: Palette,
+  globe: Globe,
+  chart: ChartColumn,
+  users: Users,
+  graduation: GraduationCap,
+  briefcase: Briefcase,
+  trending: TrendingUp,
+  target: Target,
+  megaphone: Megaphone,
+};
+
+const Icon = icons[name.toLowerCase()] ?? LayoutGrid;
+---
+
+<Icon class={className} stroke-width={2} aria-hidden="true" />
